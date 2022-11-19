@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.accuauth.com/repository/maven-releases/' }
+        // If your gradle version is greater than 7.0, you need to add the following configuration to allow pulling aar via http
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }//解决Unknown host 'jcenter.bintray.com'问题
+        maven { url 'https://maven.accuauth.com/repository/maven-releases/' }
+        // If your gradle version is greater than 7.0, you need to add the following configuration to allow pulling aar via http
+
+    }
+}
+rootProject.name = "MexicoApp"
+include ':app'
+include ':util'
+include ':DFLivenessLibrary'

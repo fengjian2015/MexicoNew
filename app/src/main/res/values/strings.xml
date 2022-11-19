@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">AyudaConfiable</string>
+
+    <string name="http_network_error">Excepción del servidor</string>
+    <string name="agreement_1">In order to perform credit risk assessment, the following data permissions is required with your permission:\n\nUser Personal Information\nOur app collects user account data which includes email address and user public profile information like name, gender, photo, national ID or voter ID. This information is required as a part of registration process to access our service and it\'s also used to auto-populate relevant fields in the course of the interface of our app.\nOur app also collects mobile number for verification to check the active SIM status on the device, uniquely identify you and prevent frauds and unauthorized access.\nOur app collects and monitors specific information about your device including your hardware model, build model, RAM, storage; unique device identifiers like IMEI,serial number,SSAID; SIM information includes network operator, roaming state,WIFI information includes MAC address and mobile network information to uniquely identify the devices and ensure that no unauthorized device act on your behalf to prevent frauds. This also helps us in assessing credit worthiness for credit profile enrichment.\nAll above data will be uploaded to https:\/\/ api.cashlawnob.com.  We will delete the all these data after we have determined your risk profile.</string>
+    <string name="agreement_2">Solo se recopilan y supervisan los mensajes de texto de transacciones financieras, incluido el nombre de la transacción, la descripción de la transacción y el monto de la transacción, para la evaluación del riesgo de crédito. Esta evaluación del riesgo de crédito permite pagos de préstamos más rápidos y rápidos. No se accede, lee ni recopila ningún mensaje personal.</string>
+    <string name="agreement_2_1">Recolectaremos su información de contacto para detectar contactos cercanos y le permitiremos completar automáticamente la información mientras solicita un préstamo. Además, al detectar referencias confiables, recopilamos información de contacto de su dispositivo para el análisis de riesgos. Cuanto más confiable sea la referencia, menor será el riesgo asociado con el usuario.La información de contacto se cifrará y se cargará a nuestro servidor en com.fly.ayudaconfiable. No venderemos, negociaremos ni alquilaremos su libreta de direcciones a ningún tercero.</string>
+    <string name="agreement_3">Leeremos la lista de aplicaciones instaladas en su dispositivo, incluido el nombre de la aplicación, la hora de instalación, la versión de instalación y más. Esto se usará para detectar malware, hacer trampa y así mantener la seguridad de todo el sistema móvil y los servicios de préstamo. La dirección del servidor es com.prestamocredit.cashin, en el servicio antifraude del usuario y en la evaluación de crédito, no venderemos, negociaremos ni alquilaremos la información de su lista de aplicaciones a terceros.</string>
+    <string name="agreement_4">Recopilamos y monitoreamos información sobre la ubicación de su dispositivo para proporcionar la aplicabilidad de su solicitud de préstamo, reducir los riesgos asociados con su solicitud de préstamo y proporcionar beneficios de préstamo preaprobados. También nos ayuda a verificar la dirección, tomar mejores decisiones de riesgo de crédito y acelerar su proceso de KYC. </string>
+    <string name="agreement_5">Necesitamos acceso a la cámara para que pueda escanear o capturar fácilmente los archivos KYC requeridos y ahorrar tiempo al permitirnos completar automáticamente los datos relevantes. Esto garantiza una experiencia perfecta al usar su aplicación.</string>
+    <string name="agreement_6">Recopilar información específica y dispositivos de vigilancia, con el nombre de equipo, modelo, lenguas regionales y la configuración, el logotipo del dispositivo, dispositivos de hardware y software de información, los hábitos, el número IMEI y del estado, y otros identificadores de dispositivo únicos, equipo para identificar de manera única, a fin de no autorizados de equipo no en su nombre, para prevenir cualquier tipo de fraude. El dispositivo de información de ubicación será encriptado y subido a nuestro servidor com.prestamocredit.cashin. Este servidor solo se utiliza para servicios antifraude y evaluación de crédito. No vendemos, comercializamos ni alquilamos la información de su dispositivo a terceros.</string>
+    <string name="agreement_7">Necesitamos una licencia de almacenamiento para que su KYC y otros archivos relacionados puedan descargarse y guardarse de forma segura en su teléfono. A continuación, puede cargar fácilmente los archivos relacionados con KYC correctos para completar y pagar los detalles de la aplicación de préstamo más rápido. Esto garantiza una experiencia perfecta al usar su aplicación.</string>
+    <string name="agreement_8">Para evaluar su elegibilidad y acelerar el reembolso de su préstamo, necesitamos estas licencias. La evaluación de riesgos requiere toda la información. Esperamos que apruebe estos permisos, de lo contrario no podremos evaluar el riesgo de su préstamo. Si está autorizado, solo recopilamos la siguiente información de su dispositivo cuando solicita un préstamo. Si no nos lo permite, no recopilaremos su información. Nuestro data tracking es un servidor con alta seguridad informática y certificado SSL que garantiza una conexión segura y protege los datos personales recopilados contra la corrupción, pérdida, alteración o uso, acceso o procesamiento no autorizado.</string>
+
+    <string name="update_error">Tiempo de espera de la sesión.</string>
+    <string name="update_update_now">actualizar</string>
+    <string name="update_update_ignorar">ignorar</string>
+    <string name="update_update_instalar">Instalar ahora</string>
+
+    <string name="webview_ssl_hint">SSL certificate validation failed</string>
+    <string name="webview_ssl_go">Go on</string>
+    <string name="webview_ssl_cancel">Cancel</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="string_activity_bottom_actionliveness">Action Liveness</string>
+    <string name="string_no_match_result_found">The result type is not found, please check again.</string>
+    <string name="string_try_again">Try again</string>
+    <string name="string_liveness_failed">Liveness failed</string>
+    <string name="string_liveness_success">Liveness verified</string>
+    <string name="string_result_text_extracted">Text extracted</string>
+    <string name="string_result_text_extracted_failed">Text extracted failed</string>
+    <string name="string_result_face_match_failed">Face match failed</string>
+    <string name="string_result_liveness_failed">Liveness failed</string>
+    <string name="string_result_face_match_success">Face match success</string>
+    <string name="string_result_liveness_success">Liveness verified</string>
+    <string name="string_result_face_match_vs">VS</string>
+    <string name="string_result_do_server_process">Server processing, please wait......</string>
+    <string name="string_card_type_error">Card type error</string>
+    <string name="string_result_liveness_no_anti_hack">No Anti Hack</string>
+    <string name="app_sdk_integrated_doc">SDK Docs</string>
+</resources>

@@ -1,0 +1,173 @@
+<com.flyco.roundview.RoundRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:clickable="true"
+    app:rv_backgroundColor="#fff"
+    app:rv_backgroundPressColor="#ccc"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_good_img"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_goods" />
+
+    <TextView
+        android:id="@+id/tv_good_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/iv_good_img"
+        android:text="新一代纳新商品"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:maxLength="17"
+        android:ellipsize="end"
+        android:textColor="#333"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/dj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_good_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/iv_good_img"
+        android:text="单价"
+        android:textColor="#ADADAD"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/dw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_good_name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/dj"
+        android:text="¥"
+        android:textColor="#ADADAD"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tv_good_unit_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_good_name"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/dw"
+        android:text="1200"
+        android:textColor="@color/commonredcolor"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/dw_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_good_name"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/tv_good_unit_price"
+        android:text="/台"
+        android:textColor="#ADADAD"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/tv_lable_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dj"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/iv_good_img"
+        android:text="数量"
+        android:textColor="#ADADAD"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/tv_good_stock_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dj"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/tv_lable_num"
+        android:text="1200"
+        android:textColor="@color/commonredcolor"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/lb_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ADADAD"
+        android:textSize="13dp"
+        android:text="类别:"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/dj"
+        android:layout_toRightOf="@+id/tv_good_stock_num" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ADADAD"
+        android:textSize="13dp"
+        android:id="@+id/tv_good_type"
+        android:text="服务类商品"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/dj"
+        android:layout_toRightOf="@+id/lb_text" />
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E2E2E2"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/shop_del"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:visibility="visible"
+            android:src="@mipmap/wm_del" />
+
+        <TextView
+            android:id="@+id/shop_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="visible"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/themecolor"
+            android:textSize="16dp"
+            tools:text="1" />
+
+        <ImageView
+            android:id="@+id/shop_add"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@mipmap/wm_add" />
+    </LinearLayout>
+
+</com.flyco.roundview.RoundRelativeLayout>

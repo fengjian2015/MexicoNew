@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/themecolor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_finsh_op"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:background="@drawable/finsh_ripple"
+            android:layout_width="70dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="0dp"
+                android:src="@mipmap/back"/>
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="返回"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            tools:text="标题"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:id="@+id/right_lay_two"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/title_right_ripple"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/right_img_two"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="2dp"
+                android:src="@mipmap/rl"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/right_lay_one"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:background="@drawable/title_right_ripple"
+            android:layout_width="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:visibility="gone"
+            android:layout_toLeftOf="@+id/right_lay_two"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/right_img_one"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="2dp"
+                android:src="@mipmap/rl"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/ll_right_lay"
+            android:background="@drawable/finsh_ripple"
+            android:clickable="true"
+            android:visibility="gone"
+
+            android:layout_alignParentRight="true"
+
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_righttitle"
+                android:gravity="center"
+                android:text="返回"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

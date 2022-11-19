@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCFBFB"
+    tools:context=".activity.SMSActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@mipmap/ic_login_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="106dp"
+            android:layout_height="22dp"
+            android:text="Iniciar sesión"
+            android:textColor="#ffffffff"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AyudaConfiable"
+            android:textColor="#ffffffff"
+            android:textSize="42sp"
+            android:shadowColor="#3d000000"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="418dp"
+        android:background="@drawable/bg_login_withe"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="185dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginTop="60dp">
+
+            <EditText
+                android:id="@+id/edtv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:textColorHint="#999999"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="Código de verificación"
+                />
+
+            <Button
+                android:id="@+id/sendSmsCode"
+                android:layout_width="53dp"
+                android:layout_height="24dp"
+                android:background="@drawable/button_ok"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:text="Código"
+                android:gravity="center"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#979797"
+            android:layout_marginHorizontal="35dp"/>
+
+        <Button
+            android:id="@+id/btUpgrade"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="36dp"
+            android:background="@drawable/button_ok"
+            android:text="Siguiente"
+            android:textColor="#ffffffff"
+            android:layout_marginTop="60dp"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/pll"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/llInput"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="21dp"
+            >
+            <CheckBox
+                android:id="@+id/pcb"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:button="@null"
+                android:layout_marginRight="7dp"
+                android:background="@drawable/selector_c"
+                android:layout_marginTop="5dp"
+                />
+            <TextView
+                android:id="@+id/ptv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Al continuar,acepta nuestros &lt;Términos de servicio&gt;  y &lt;Política de privacidad&gt; y recibe comunicaciones por SMS y correo electrónico."
+                android:textColor="#999999"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

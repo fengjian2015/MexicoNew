@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".activity.PActivity">
+    <FrameLayout
+        android:id="@+id/topFrame"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:minHeight="48dp"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:id="@+id/topBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back"
+            android:paddingHorizontal="10dp"
+            />
+
+        <TextView
+            android:id="@+id/topTitle"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:paddingHorizontal="20dp"
+            android:text="Autorizado"
+            android:textColor="#ff333333"
+            android:textSize="18sp"/>
+    </FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="13dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="13dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product code"
+            android:textColor="#333333"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="#555555"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#F8F8F8"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="11dp">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="35dp"
+                    android:layout_height="20dp"
+                    android:text="Hola "
+                    android:textColor="#ff13ce95"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="343dp"
+                    android:layout_height="28dp"
+                    android:text="Si acepta los términos de privacidad del acuerdo, haga clic en Aceptar para pasar al siguiente paso."
+                    android:textColor="#ff13ce95"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_sms"
+                android:text="SMS"
+                android:drawablePadding="6dp"
+                android:textColor="#ff333333"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:textColor="#666666"
+                android:text="@string/agreement_2"
+                android:layout_marginHorizontal="16dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_contacts"
+                android:text="Información de la lista de contactos"
+                android:drawablePadding="6dp"
+                android:textColor="#333333"
+                android:layout_marginTop="11dp"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:text="@string/agreement_2_1"
+                android:layout_marginHorizontal="16dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_contacts"
+                android:text="CONTACTS"
+                android:drawablePadding="6dp"
+                android:textColor="#fff69800"
+                android:layout_marginTop="11dp"
+                android:visibility="gone"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#fff69800"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/agreement_3"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_installed"
+                android:text="Aplicación instalada"
+                android:drawablePadding="6dp"
+                android:textColor="#333333"
+                android:layout_marginTop="11dp"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:text="@string/agreement_3"
+                android:layout_marginHorizontal="16dp"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_location"
+                android:text="Ubicación"
+                android:drawablePadding="6dp"
+                android:textColor="#333333"
+                android:layout_marginTop="11dp"
+                android:layout_marginHorizontal="16dp"
+
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:text="@string/agreement_4"
+                android:layout_marginHorizontal="16dp"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_camera"
+                android:text="Cámara"
+                android:drawablePadding="6dp"
+                android:textColor="#333333"
+                android:layout_marginTop="11dp"
+                android:layout_marginHorizontal="16dp"
+
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:text="@string/agreement_5"
+                android:layout_marginHorizontal="16dp"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_link"
+                android:text="Información del dispositivo"
+                android:drawablePadding="6dp"
+                android:textColor="#333333"
+                android:layout_marginTop="11dp"
+                android:layout_marginHorizontal="16dp"
+
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="16dp"
+
+                android:text="@string/agreement_6"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_storage"
+                android:text="Almacenamiento"
+                android:drawablePadding="6dp"
+                android:textColor="#333333"
+                android:layout_marginTop="11dp"
+                android:layout_marginHorizontal="16dp"
+
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:text="@string/agreement_7"
+                android:layout_marginHorizontal="16dp"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="24dp"
+                android:text="@string/agreement_8"
+                android:layout_marginHorizontal="16dp"
+
+                android:paddingBottom="20dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="23dp">
+        <Button
+            android:id="@+id/btUpgrade"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="36dp"
+            android:background="@drawable/button_ok"
+            android:text="Aceptar"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</LinearLayout>

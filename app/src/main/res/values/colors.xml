@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Default-->
+    <color name="colorPrimary">#FFF</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#DF4133</color>
+    <color name="radio_text_color">#7C7C7C</color>
+    <color name="bottom_span_line_color">#F2F2F2</color>
+    <color name="bottom_item_bg_color">#F9F9F9</color>
+    <color name="bottom_item_bg_color_pressed">#0072FF</color>
+    <color name="result_item_bg_color">#FBFBFB</color>
+    <color name="result_item_border_color">#DADADA</color>
+    <color name="result_mask_color">#CCFFFFFF</color>
+    <color name="app_integrated_doc_bg">#E6E6E6</color>
+    <color name="app_integrated_doc_text">#4A576A</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="title_color">#FFFFFFFF</color>
+
+    <color name="translucent">#00000000</color>
+    <color name="c_bg">#FFFFFF</color>
+    <color name="c_title_bg">#FFFFFF</color>
+    <color name="c_title_txt">#322D2D</color>
+
+    <!-- 首页RadioButton选中背景色 -->
+    <color name="bg_f5">#f5f5f5</color>
+    <color name="bg_main_rb_checked">#51b5fe</color>
+    <color name="bg_main_rb_normal">#f7f7f7</color>
+    <color name="bg_menu_fragment">#333333</color>
+    <color name="bg_title_bar">#35CD94</color>
+    <color name="deep_orange">#FF6600</color>
+    <color name="text_b6">#b6b6b6</color>
+    <color name="green">#35CD94</color>
+    <color name="deep_green">#24C086</color>
+    <color name="orange">#FFAA00</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="half_transparent">#40000000</color>
+    <color name="bg_c1">#c1ffc1</color>
+    <color name="text_66">#666666</color>
+    <color name="text_98">#989999</color>
+    <color name="text_3e">#333333</color>
+    <color name="bg_e9">#e9e9e9</color>
+    <color name="bg">#66ce95</color>
+    <color name="laybg">#f7f5f6</color>
+    <color name="ty_bg">#0BD58A</color>
+    <!-- 字体颜色 -start -->
+    <color name="textcolor_black">#333333</color>
+    <color name="text_color_light_gray">#999999</color>
+    <color name="textcolor_green">#35CD94</color>
+    <color name="text_color_blue">#59bfff</color>
+    <color name="text_color_hint">#ccc</color>
+    <color name="text_color_red">#f6585f</color>
+    <color name="text_color_orange">#FF9900</color>
+    <color name="text_color_check">#ff8a50</color>
+    <color name="fo">#f0f0f0</color>
+    <color name="bg_e0">#F5F5F5</color>
+    <color name="line_e9">#cdcdcd</color>
+    <color name="soft_input_splitline_color">#F5F5F5</color>
+    <color name="pickerview_timebtn_nor">#24C086</color>
+    <!-- MaterialDialog -->
+    <color name="blu">#2395f0</color>
+    <color name="nbt">#f24d4c</color>
+    <color name="card_background">#ffffff</color>
+    <color name="card_shadow">#10000000</color>
+    <color name="lite_blue">#ff359ff2</color>
+    <color name="window_background">#00000000</color>
+    <color name="black_de">#DE000000</color>
+    <color name="whell_item_bg_select">#efefef</color>
+    <color name="black33">#333333</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <color name="viewfinder_border">#ffafed44</color>
+    <color name="back_orange">#ffb804</color>
+    <color name="finder_mask">#60000000</color>
+    <color name="rea">#ffff0000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="blue_bg">#2F3F56</color>
+    <color name="blueLight">#7eb3ff</color>
+    <color name="withe">#ffffff</color>
+    <color name="black99">#999999</color>
+    <!-- A light Holo shade of blue -->
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <!-- A light Holo shade of green -->
+    <color name="holo_green_light">#ff99cc00</color>
+    <!-- A light Holo shade of red -->
+    <color name="holo_red_light">#ffff4444</color>
+    <!-- A dark Holo shade of blue -->
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <!-- A dark Holo shade of green -->
+    <color name="holo_green_dark">#ff669900</color>
+    <!-- A dark Holo shade of red -->
+    <color name="holo_red_dark">#ffcc0000</color>
+    <!-- A Holo shade of purple -->
+    <color name="holo_purple">#ffaa66cc</color>
+    <!-- A light Holo shade of orange -->
+    <color name="holo_orange_light">#ffffbb33</color>
+    <!-- A dark Holo shade of orange -->
+    <color name="holo_orange_dark">#ffff8800</color>
+    <!-- A really bright Holo shade of blue -->
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="switchcolor">#00C08C</color>
+    <color name="content_background">#f2f2f2</color>
+    <color name="gaoqing">#31AA00</color>
+    <color name="bright_foreground_light_disabled">#80000000</color>
+
+    <color name="themecolor">#00C08C</color>
+    <color name="commonbackcolor">#FAFAFA</color>
+    <color name="commonredcolor">#FF3A3A</color>
+    <color name="commonhintcolor">#949494</color>
+</resources>

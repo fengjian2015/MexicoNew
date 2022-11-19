@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 28
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "HOST_URL", "\"https://cloudapi.mexico.accuauth.com\""
+            buildConfigField "String", "API_ID", "\"9e1709ce31ae46a19983f50c4e3762bb\""
+            buildConfigField "String", "API_SECRET", "\"d2fd19544cd74f8f9b10864d82f66bf0\""
+        }
+
+        release {
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "HOST_URL", "\"https://cloudapi.mexico.accuauth.com\""
+            buildConfigField "String", "API_ID", "\"9e1709ce31ae46a19983f50c4e3762bb\""
+            buildConfigField "String", "API_SECRET", "\"d2fd19544cd74f8f9b10864d82f66bf0\""
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+
+
+dependencies {
+    implementation fileTree(dir: "libs", include: [".jar", ".aar"])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    api files('libs/DFLivenessSDK.aar')
+}

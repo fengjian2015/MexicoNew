@@ -1,0 +1,56 @@
+package com.fly.ayudaconfiable.activity
+
+import com.fly.ayudaconfiable.bean.event.HttpEvent
+import com.fly.ayudaconfiable.databinding.ActivityPactivityBinding
+import com.fly.ayudaconfiable.utils.DeviceInfoUtil
+import com.fly.ayudaconfiable.utils.UserInfoManger
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.Permission
+import com.hjq.permissions.XXPermissions
+
+class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBinding::inflate) {
+    override fun initView() {
+        HttpEvent.getProtocolUrl()
+        HttpEvent.getPublicIp()
+        binding.topBack.setOnClickListener { finish() }
+        binding.btUpgrade.setOnClickListener {
+            DeviceInfoUtil.openLocService()
+            DeviceInfoUtil.openWifi()
+            DeviceInfoUtil.openBluetooth()
+            XXPermissions.with(this) // 申请多个权限
+                .permission(Permission.READ_SMS)
+                .permission(Permission.READ_CONTACTS)
+                .permission(Permission.GET_ACCOUNTS)
+                .permission(Permission.Group.STORAGE)
+                .permission(Permission.ACCESS_FINE_LOCATION)
+                .permission(Permission.ACCESS_COARSE_LOCATION)
+                .permission(Permission.READ_PHONE_STATE)
+                .permission(Permission.Group.BLUETOOTH)
+                .permission(Permission.CAMERA)
+                .permission(Permission.ACCESS_MEDIA_LOCATION)
+                .permission(Permission.Group.CALENDAR)
+                .request(object : OnPermissionCallback {
+                    override fun onGranted(permissions: List<String>, all: Boolean) {
+                        var blue = true
+                        if (DeviceInfoUtil.isHaveBluetooth()){
+                            blue = DeviceInfoUtil.isOpenBluetooth()
+                        }
+                        if (all && DeviceInfoUtil.isLocServiceEnable() && DeviceInfoUtil.isOpenWifi() && blue) {
+                            if (UserInfoManger.getUserInfo() != null) {
+                                BaseWebActivity.openWebView(this@PActivity, UserInfoManger.getHomeUrl(), true)
+                            } else {
+                                startActivity(Login2Activity::class.java)
+                            }
+                            this@PActivity.finish()
+                        }
+                    }
+
+                    override fun onDenied(permissions: List<String>, never: Boolean) {
+                        if (never) {
+                            XXPermissions.startPermissionActivity(this@PActivity, permissions)
+                        }
+                    }
+                })
+        }
+    }
+}

@@ -1,2 +1,2 @@
-# MexicoNew
-墨西哥新项目
+# MexicoApp
+套壳墨西哥
