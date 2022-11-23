@@ -34,6 +34,7 @@ import com.hjq.permissions.XXPermissions
 import com.liveness.dflivenesslibrary.DFTransferResultInterface
 import com.liveness.dflivenesslibrary.liveness.DFActionLivenessActivity
 import com.liveness.dflivenesslibrary.liveness.util.Constants
+import com.liveness.dflivenesslibrary.net.DFNetworkUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -114,6 +115,7 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                         ActivityManager.getCurrentActivity()
                             ?.let { intent.setClass(it, DFActionLivenessActivity::class.java) }
                         intent.putExtras(bundle);
+                        intent.putExtra(DFActionLivenessActivity.KEY_ANTI_HACK, true);
                         intent.putExtra(DFActionLivenessActivity.KEY_DETECT_IMAGE_RESULT, true);
                         intent.putExtra(DFActionLivenessActivity.KEY_HINT_MESSAGE_HAS_FACE, "Please hold still");
                         intent.putExtra(DFActionLivenessActivity.KEY_HINT_MESSAGE_NO_FACE, "Please place your face inside the circle");
@@ -913,27 +915,34 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
             if (resultCode == Activity.RESULT_OK) {
                 var mResult = (MyApplication.application as DFTransferResultInterface).result;
                 mResult?.let {
-                    ///get key frame
-                    var imageResultArr = mResult.livenessImageResults
-                    if (imageResultArr != null) {
-                        var size = imageResultArr.size;
-                        if (size > 0) {
-                            var imageResult = imageResultArr[0];
-                            var imageBase64 = Base64.encodeToString(imageResult.detectImage, Base64.NO_WRAP)
-                            var vivoBackBean : VIVOBackBean = VIVOBackBean();
-                            vivoBackBean.headPhotoUrl = imageBase64
-                            LogUtils.d("返还1：imageResult：$vivoBackBean")
-                            AndroidCallBackJS.callBackJsSuccess(mWebView, eventVivoContactId,
-                                Cons.JS_KEY_VIVO, Gson().toJson(vivoBackBean))
+                    GlobalScope.launch(Dispatchers.IO){
+                        ///get key frame
+                        var imageResultArr = mResult.livenessImageResults
+                        if (imageResultArr != null) {
+                            var size = imageResultArr.size;
+                            if (size > 0) {
+                                var imageResult = imageResultArr[0];
+                                var imageBase64 = Base64.encodeToString(imageResult.detectImage, Base64.NO_WRAP)
+
+                                val doAntiHack = DFNetworkUtil.doAntiHack(mResult.livenessEncryptResult)
+
+                                var vivoBackBean  = VIVOBackBean();
+                                vivoBackBean.headPhotoUrl = imageBase64
+                                vivoBackBean.liveNessScore = doAntiHack.mScore
+                                LogUtils.d("返还1：imageResult：$vivoBackBean")
+                                AndroidCallBackJS.callBackJsSuccess(mWebView, eventVivoContactId,
+                                    Cons.JS_KEY_VIVO, Gson().toJson(vivoBackBean))
+                            }
+
+                        }else{
+                            LogUtils.d("报错" + mResult.errorMessage)
+                            AndroidCallBackJS.callbackJsErrorOther(mWebView, eventVivoContactId,
+                                Cons.JS_KEY_VIVO, mResult.errorMessage)
                         }
-                    }else{
-                        LogUtils.d("报错" + mResult.errorMessage)
-                        AndroidCallBackJS.callbackJsErrorOther(mWebView, eventVivoContactId,
-                            Cons.JS_KEY_VIVO, mResult.errorMessage)
+                        // the encrypt buffer which is used to send to anti-hack API
+                        var livenessEncryptResult = mResult.livenessEncryptResult
+                        LogUtils.d("街廓返还3：livenessEncryptResult：" + livenessEncryptResult)
                     }
-                    // the encrypt buffer which is used to send to anti-hack API
-                    var livenessEncryptResult = mResult.livenessEncryptResult
-                    LogUtils.d("街廓返还3：livenessEncryptResult：" + livenessEncryptResult)
                 }
             }else{
                 if (data != null) {

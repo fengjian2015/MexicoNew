@@ -4,13 +4,12 @@ import java.io.Serializable;
 
 public class VIVOBackBean implements Serializable {
     private String headPhotoUrl;
-    private String liveNessScore;
+    private double liveNessScore;
     private String liveNessId;
 
     @Override
     public String toString() {
         return "VIVOBackBean{" +
-                "headPhotoUrl='" + headPhotoUrl + '\'' +
                 ", liveNessScore='" + liveNessScore + '\'' +
                 ", liveNessId='" + liveNessId + '\'' +
                 '}';
@@ -24,11 +23,11 @@ public class VIVOBackBean implements Serializable {
         this.headPhotoUrl = headPhotoUrl;
     }
 
-    public String getLiveNessScore() {
+    public double getLiveNessScore() {
         return liveNessScore;
     }
 
-    public void setLiveNessScore(String liveNessScore) {
+    public void setLiveNessScore(double liveNessScore) {
         this.liveNessScore = liveNessScore;
     }
 

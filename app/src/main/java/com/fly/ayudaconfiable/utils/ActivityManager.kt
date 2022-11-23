@@ -13,7 +13,7 @@ object ActivityManager {
 
     fun getCurrentActivity(): Activity? {
         var currentActivity: Activity? = null
-        val let = sCurrentActivityWeakRef?.let {
+        sCurrentActivityWeakRef?.let {
             currentActivity = it.get()!!
         }
         return currentActivity
@@ -22,6 +22,7 @@ object ActivityManager {
     fun registerActivityLifecycleCallbacks(){
         MyApplication.application.registerActivityLifecycleCallbacks(object:Application.ActivityLifecycleCallbacks{
             override fun onActivityCreated(p0: Activity, p1: Bundle?) {
+                sCurrentActivityWeakRef = WeakReference(p0)
             }
 
             override fun onActivityStarted(p0: Activity) {

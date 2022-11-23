@@ -10,7 +10,7 @@ class AlbumInfo:Serializable {
     var longitude :String ="" //经度
     var latitude :String ="" //纬度
     var model :String ="" //拍摄照片的手机机型
-    var addTime :String ="" //拍摄时间(格式：yyyy-mm-dd HH:mm:ss)
+    var addTime :String? ="" //拍摄时间(格式：yyyy-mm-dd HH:mm:ss)
     var updateTime :String ="" //修改时间(格式：yyyy-mm-dd HH:mm:ss)
     var save_time :String ="" //保存时间
     var orientation :String ="" //照片方向

@@ -13,6 +13,7 @@ object LoadingUtil {
 
     @Synchronized
     fun showLoading() {
+        LogUtils.d("activity ："+ActivityManager.getCurrentActivity())
         var context = ActivityManager.getCurrentActivity() ?: return
         if (context is Activity) {
             if (context.isFinishing) return
@@ -57,9 +58,10 @@ object LoadingUtil {
     @Synchronized
     private fun initLoading(context: Context) {
         if (progressDialog == null) {
-            val builder = AlertDialog.Builder(context)
+            val builder = AlertDialog.Builder(context,R.style.LoadingStyle)
                 .setView(R.layout.layout_loading)
             builder.setCancelable(true)
+            progressDialog = builder.create()
         }
     }
 }

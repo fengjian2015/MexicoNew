@@ -37,7 +37,7 @@ class BatteryChangeReceiver : BroadcastReceiver() {
             batteryBean.health = it.getIntExtra(BatteryManager.EXTRA_HEALTH, -1);
             batteryBean.status = it.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
             batteryBean.temperature =
-                (it.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1)/10).toString()
+                (it.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1)).toString()
             LogUtils.d("电池温度："+batteryBean.temperature)
             batteryBean.technology = it.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY).toString();
             MMKVCacheUtil.putString(KEY_BATTERY_INFO, Gson().toJson(batteryBean))

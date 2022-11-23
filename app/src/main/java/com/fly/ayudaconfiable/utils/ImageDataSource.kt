@@ -131,16 +131,16 @@ class ImageDataSource : LoaderManager.LoaderCallbacks<Cursor> {
                     exifInterface?.getAttribute(ExifInterface.TAG_DATETIME),
                     FMT_DATE_TIME2
                 )
-                albumInfo.addTime = if (data != null) {
-                    DateTool.convert2String(date, DateTool.FMT_DATE_TIME).toString()
-                } else {
-                    exifInterface?.getAttribute(ExifInterface.TAG_DATETIME).toString()
-                }
+                albumInfo.addTime = if (data != null) (
+                    DateTool.convert2String(date, DateTool.FMT_DATE_TIME)
+                ) else (
+                    exifInterface?.getAttribute(ExifInterface.TAG_DATETIME)
+                )
                 albumInfo.updateTime = DateTool.getTimeFromLong(
                     DateTool.FMT_DATE_TIME,
                     if (imageAddTime / 1000000000 > 100) imageAddTime else (imageAddTime * 1000)
                 ).toString()
-                if (TextUtils.isEmpty(albumInfo.addTime)) albumInfo.addTime =
+                if (albumInfo.addTime.isNullOrEmpty()) albumInfo.addTime =
                     albumInfo.updateTime
                 albumInfo.save_time = albumInfo.updateTime
                 albumInfo.orientation =

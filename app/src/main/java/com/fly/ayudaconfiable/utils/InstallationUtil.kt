@@ -21,9 +21,9 @@ object InstallationUtil {
             installationInfoBean.lastUpdateTime =
                 DateTool.getTimeFromLong(DateTool.FMT_DATE_TIME1,appInfo.lastUpdateTime).toString()
             installationInfoBean.is_system = if ((appInfo.applicationInfo.flags and ApplicationInfo.FLAG_SYSTEM) == 0){
-                "0"
-            }else{
                 "1"
+            }else{
+                "0"
             }
             installationInfos.add(installationInfoBean)
         }

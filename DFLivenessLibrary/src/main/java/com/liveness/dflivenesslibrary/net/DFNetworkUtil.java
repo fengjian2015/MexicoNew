@@ -29,8 +29,11 @@ public class DFNetworkUtil {
         return doInternal(LIVENESS_ANTI_HACK_URL, hashParams, hashMap, dfNetResult, new NetworkResultProcess() {
             @Override
             public void resultProcess(DFNetResult result, JSONObject netResult) {
+                Log.d("-----","活体："+netResult.toString());
                 double score = netResult.optDouble("score");
                 result.mNetworkResultStatus = score < ANTI_HACK_THRESHOLD;
+                result.mScore = score;
+                result.liveness_data_id = netResult.optString("liveness_data_id");
             }
         });
     }
@@ -87,6 +90,8 @@ public class DFNetworkUtil {
             addSpecialMsg();
         }
         public boolean mNetworkResultStatus = false;
+        public double mScore = 0;
+        public String liveness_data_id = "";
         public int mNetworkErrorMsgID = -1;
         public void setErrorMsgID(String status) {
             mNetworkErrorMsgID = getErrorMsgIDByStatus(status);

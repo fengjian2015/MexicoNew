@@ -96,25 +96,6 @@ class IWebViewClient constructor(iWebView: IWebView) : WebViewClient() {
         }
     }
 
-    override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler, error: SslError?) {
-        val mHandler: SslErrorHandler = handler
-        val builder = AlertDialog.Builder(ActivityManager.getCurrentActivity())
-        builder.setMessage(MyApplication.application.getString(R.string.webview_ssl_hint))
-        builder.setPositiveButton(MyApplication.application.getString(R.string.webview_ssl_go),
-            DialogInterface.OnClickListener { dialog, which -> mHandler.proceed() })
-        builder.setNegativeButton(MyApplication.application.getString(R.string.webview_ssl_cancel),
-            DialogInterface.OnClickListener { dialog, which -> mHandler.cancel() })
-        builder.setOnKeyListener(DialogInterface.OnKeyListener { dialog, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                mHandler.cancel()
-                dialog.dismiss()
-                return@OnKeyListener true
-            }
-            false
-        })
-        val dialog = builder.create()
-        dialog.show()
-    }
 
     override fun onReceivedError(
         webView: WebView?,

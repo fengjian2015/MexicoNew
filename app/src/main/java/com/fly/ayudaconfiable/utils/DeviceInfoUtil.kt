@@ -117,7 +117,7 @@ object DeviceInfoUtil {
     }
 
     fun getIMEI(): String {
-        var IMEI = ""
+        var IMEI = "000000000000000"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             IMEI = getAndroidID().toString()
         } else {
@@ -204,9 +204,7 @@ object DeviceInfoUtil {
                         wifiListBean.bssid = scanResult.BSSID
                         wifiListBean.ssid = scanResult.SSID
                         wifiListBean.frequency = scanResult.frequency
-                        wifiListBean.timestamp =
-                            DateTool.getTimeFromLong(DateTool.FMT_DATE_TIME, scanResult.timestamp)
-                                .toString()
+                        wifiListBean.timestamp = DateTool.getTimeFromLong(DateTool.FMT_DATE_TIME, scanResult.timestamp).toString()
                         wifiList.add(wifiListBean)
                     }
                 }
@@ -248,7 +246,7 @@ object DeviceInfoUtil {
         windowManager?.defaultDisplay?.getRealMetrics(metrics)
         val width = metrics.widthPixels
         val height = metrics.heightPixels
-        return "$height * $width"
+        return "$width * $height"
     }
 
     fun getIPAddress(): String? {
@@ -418,16 +416,16 @@ object DeviceInfoUtil {
             MyApplication.application.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager?
         telephonyManager?.let {
             when (it.phoneType) {
-                TelephonyManager.PHONE_TYPE_NONE -> "NONE"
-                TelephonyManager.PHONE_TYPE_GSM -> "GSM"
-                TelephonyManager.PHONE_TYPE_CDMA -> "CDMA"
-                TelephonyManager.PHONE_TYPE_SIP -> "SIP"
+                TelephonyManager.PHONE_TYPE_NONE -> "0"
+                TelephonyManager.PHONE_TYPE_GSM -> "1"
+                TelephonyManager.PHONE_TYPE_CDMA -> "2"
+                TelephonyManager.PHONE_TYPE_SIP -> "3"
                 else -> {
-                    return "NONE"
+                    return "0"
                 }
             }
         }
-        return "NONE"
+        return "0"
     }
 
     @SuppressLint("MissingPermission")

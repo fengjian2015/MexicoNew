@@ -116,8 +116,8 @@ class SMSActivity : BaseActivity<ActivitySmsactivityBinding>(ActivitySmsactivity
                             it.phone = MMKVCacheUtil.getString(Cons.KEY_PHONE)
                             it.devName = "android"
                             UserInfoManger.saveUserInfo(it)
+                            BaseWebActivity.openWebView(this@SMSActivity,UserInfoManger.getHomeUrl(),true)
                         }
-                        BaseWebActivity.openWebView(this@SMSActivity,UserInfoManger.getHomeUrl(),true)
                         handler.postDelayed({ finish() },1000)
                     }else{
                         ToastUtils.showShort(data.message)
