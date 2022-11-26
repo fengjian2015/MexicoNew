@@ -10,12 +10,60 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
+
 object ImageUtils {
 
     private const val IMG_WIDTH = 480 //超過此寬、高則會 resize圖片
 
     private const val IMG_HIGHT = 800
     private const val COMPRESS_QUALITY = 70 //壓縮 JPEG使用的品質(70代表壓縮率為 30%)
+
+
+    /**
+     * 获取图片的类型信息
+     *
+     * @param bytes
+     * 2~8 byte at beginning of the image file
+     * @return image mimetype or null if the file is not image
+     */
+    fun getImageType(bytes: ByteArray): String {
+        if (isJPEG(bytes)) {
+            return "image/jpeg"
+        }
+        if (isGIF(bytes)) {
+            return "image/gif"
+        }
+        if (isPNG(bytes)) {
+            return "image/png"
+        }
+        return if (isBMP(bytes)) {
+            "application/x-bmp"
+        } else ""
+    }
+
+    private fun isJPEG(b: ByteArray): Boolean {
+        return if (b.size < 2) {
+            false
+        } else b[0] == 0xFF.toByte() && b[1] == 0xD8.toByte()
+    }
+
+    private fun isGIF(b: ByteArray): Boolean {
+        return if (b.size < 6) {
+            false
+        } else b[0] == 'G'.code.toByte() && b[1] == 'I'.code.toByte() && b[2] == 'F'.code.toByte() && b[3] == '8'.code.toByte() && (b[4] == '7'.code.toByte() || b[4] == '9'.code.toByte()) && b[5] == 'a'.code.toByte()
+    }
+
+    private fun isPNG(b: ByteArray): Boolean {
+        return if (b.size < 8) {
+            false
+        } else b[0] == 137.toByte() && b[1] == 80.toByte() && b[2] == 78.toByte() && b[3] == 71.toByte() && b[4] == 13.toByte() && b[5] == 10.toByte() && b[6] == 26.toByte() && b[7] == 10.toByte()
+    }
+
+    private fun isBMP(b: ByteArray): Boolean {
+        return if (b.size < 2) {
+            false
+        } else b[0].toInt() == 0x42 && b[1].toInt() == 0x4d
+    }
 
 
     fun compressImage(srcImgPath: String): File? {

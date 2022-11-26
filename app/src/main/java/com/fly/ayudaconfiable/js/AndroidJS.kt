@@ -497,9 +497,7 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
 
                             withContext(Dispatchers.Main) {
                                 val applyInfoBean = ApplyInfo()
-                                val deviceInfoBeans = ArrayList<DeviceInfo>()
-                                deviceInfoBeans.add(deviceInfoBean)
-                                applyInfoBean.device_info = deviceInfoBeans
+                                applyInfoBean.device_info = deviceInfoBean
                                 HttpEvent.uploadApplyInfo(
                                     applyInfoBean,
                                     mWebView,
@@ -922,14 +920,15 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             var size = imageResultArr.size;
                             if (size > 0) {
                                 var imageResult = imageResultArr[0];
-                                var imageBase64 = Base64.encodeToString(imageResult.detectImage, Base64.NO_WRAP)
-
+                                var imageBase64 = Base64Util.encode(imageResult.image)
                                 val doAntiHack = DFNetworkUtil.doAntiHack(mResult.livenessEncryptResult)
 
                                 var vivoBackBean  = VIVOBackBean();
+                                vivoBackBean.fileType = ImageUtils.getImageType(imageResult.detectImage)
                                 vivoBackBean.headPhotoUrl = imageBase64
                                 vivoBackBean.liveNessScore = doAntiHack.mScore
-                                LogUtils.d("返还1：imageResult：$vivoBackBean")
+                                vivoBackBean.liveNessId = doAntiHack.liveness_data_id
+                                LogUtils.d("返还1：imageResult：${vivoBackBean.toString()}")
                                 AndroidCallBackJS.callBackJsSuccess(mWebView, eventVivoContactId,
                                     Cons.JS_KEY_VIVO, Gson().toJson(vivoBackBean))
                             }

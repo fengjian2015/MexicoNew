@@ -46,7 +46,7 @@ class BaseWebActivity : BaseActivity<ActivityBaseWebBinding>(ActivityBaseWebBind
         binding.webview.getWebView().addJavascriptInterface(appJS,appJS.APP_CLIENT)
         isHome = intent.getBooleanExtra(WEB_IS_HOME, false)
         webUrl = intent.getStringExtra(WEB_URL).toString()
-        webUrl = "file:///android_asset/h5.html"
+//        webUrl = "file:///android_asset/h5.html"
         if (!webUrl.startsWith("http") && !webUrl.startsWith("file")){
             webUrl = "https://$webUrl"
         }
@@ -63,6 +63,7 @@ class BaseWebActivity : BaseActivity<ActivityBaseWebBinding>(ActivityBaseWebBind
             }
             //检测更新
             HttpEvent.getNewVersion()
+
         }
         binding.webview.getWebView()?.loadUrl(webUrl)
         binding.include.toolbarBack.setOnClickListener {

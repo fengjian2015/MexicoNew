@@ -86,9 +86,10 @@
                     android:textSize="14sp"
                     />
                 <TextView
-                    android:layout_width="343dp"
-                    android:layout_height="28dp"
-                    android:text="Si acepta los términos de privacidad del acuerdo, haga clic en Aceptar para pasar al siguiente paso."
+                    android:id="@+id/tvHola"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="En todo caso, esas entidades estarán igualmente sujetas a las obligaciones de confidencialidad en el manejo de la información con las limitaciones legales impuestas por las leyes aplicables sobre la materia en la jurisdicción donde ésta se recolecte, archive procese o transmita. Para mas detalles, usted puede ver nuestra &lt;Términos y Condiciones&gt; y &lt;Politica de Privacidad&gt; . Para evaluar su elegibilidad y facilitar el desembolso más rápido de su préstamo, necesitamos de los siquientes permisos para acceder a su:permiso de información personal del usuario, lista de contactos SMS, localización. cámara, calendario,modelo yestado del dispositivo, lectura y escritura para almacenamiento externo."
                     android:textColor="#ff13ce95"
                     android:textSize="12sp"
                     />
@@ -277,18 +278,31 @@
                 />
         </LinearLayout>
     </ScrollView>
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:paddingVertical="23dp">
         <Button
-            android:id="@+id/btUpgrade"
-            android:layout_width="match_parent"
+            android:id="@+id/btUpgrade1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp"
-            android:layout_marginHorizontal="36dp"
+            android:layout_marginLeft="36dp"
+            android:background="@drawable/button_no1"
+            android:text="Más tarde"
+            android:textColor="#12C38D"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/btUpgrade"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="36dp"
             android:background="@drawable/button_ok"
             android:text="Aceptar"
             android:textColor="#ffffffff"
             android:textSize="16sp" />
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

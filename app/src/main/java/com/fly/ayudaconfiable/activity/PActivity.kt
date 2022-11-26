@@ -1,9 +1,12 @@
 package com.fly.ayudaconfiable.activity
 
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.method.LinkMovementMethod
+import android.view.View
 import com.fly.ayudaconfiable.bean.event.HttpEvent
 import com.fly.ayudaconfiable.databinding.ActivityPactivityBinding
-import com.fly.ayudaconfiable.utils.DeviceInfoUtil
-import com.fly.ayudaconfiable.utils.UserInfoManger
+import com.fly.ayudaconfiable.utils.*
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
@@ -12,7 +15,27 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
     override fun initView() {
         HttpEvent.getProtocolUrl()
         HttpEvent.getPublicIp()
+        val spannableString = SpannableString(binding.tvHola.text)
+        UiUtil.tColorTextClick(spannableString,
+            322,
+            347,
+            Color.parseColor("#F69800"),
+            View.OnClickListener { view: View? ->
+                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1) == null) return@OnClickListener
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1), false)
+            })
+        UiUtil.tColorTextClick(spannableString,
+            349,
+            374,
+            Color.parseColor("#F69800"),
+            View.OnClickListener { view: View? ->
+                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_6) == null) return@OnClickListener
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_6), false)
+            })
+        binding.tvHola.text = spannableString
+        binding.tvHola.movementMethod = LinkMovementMethod.getInstance()
         binding.topBack.setOnClickListener { finish() }
+        binding.btUpgrade1.setOnClickListener { finish() }
         binding.btUpgrade.setOnClickListener {
             DeviceInfoUtil.openLocService()
             DeviceInfoUtil.openWifi()

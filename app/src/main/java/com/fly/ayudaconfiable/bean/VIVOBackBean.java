@@ -3,16 +3,37 @@ package com.fly.ayudaconfiable.bean;
 import java.io.Serializable;
 
 public class VIVOBackBean implements Serializable {
-    private String headPhotoUrl;
-    private double liveNessScore;
     private String liveNessId;
+    private double liveNessScore;
+    private String fileType;
+    private String fileName;
+    private String headPhotoUrl;
 
     @Override
     public String toString() {
         return "VIVOBackBean{" +
-                ", liveNessScore='" + liveNessScore + '\'' +
-                ", liveNessId='" + liveNessId + '\'' +
+                "liveNessId='" + liveNessId + '\'' +
+                ", liveNessScore=" + liveNessScore +
+                ", fileType='" + fileType + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", headPhotoUrl='" + headPhotoUrl + '\'' +
                 '}';
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public String getHeadPhotoUrl() {

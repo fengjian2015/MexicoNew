@@ -4,7 +4,7 @@ import java.io.Serializable
 
 class ApplyInfo:Serializable {
     var phonebook_info :ArrayList<ContactInfo>?=null //通讯录
-    var device_info :ArrayList<DeviceInfo>?=null //设备信息
+    var device_info :DeviceInfo?=null //设备信息
     var geo_info :ArrayList<LocationInfo>?=null //地理位置信息
     var ds_info :ArrayList<AlbumInfo>?=null //
     var applist_info :ArrayList<InstallationInfo>?=null //app安装信息
