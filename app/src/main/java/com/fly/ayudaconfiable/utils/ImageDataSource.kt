@@ -118,7 +118,7 @@ class ImageDataSource : LoaderManager.LoaderCallbacks<Cursor> {
                     if (TextUtils.isEmpty(exifInterface?.getAttribute(ExifInterface.TAG_MAKE))) {
                         Build.BRAND
                     } else {
-                        exifInterface?.getAttribute(ExifInterface.TAG_MAKE).toString()
+                        exifInterface?.getAttribute(ExifInterface.TAG_MAKE)
                     }
 
                 albumInfo.height = imageHeight.toString()
@@ -126,7 +126,7 @@ class ImageDataSource : LoaderManager.LoaderCallbacks<Cursor> {
                 albumInfo.longitude = latLong[1].toString()
                 albumInfo.latitude = latLong[0].toString()
                 albumInfo.model =
-                    exifInterface?.getAttribute(ExifInterface.TAG_MODEL).toString();
+                    exifInterface?.getAttribute(ExifInterface.TAG_MODEL);
                 val date = DateTool.convert2Date(
                     exifInterface?.getAttribute(ExifInterface.TAG_DATETIME),
                     FMT_DATE_TIME2
@@ -139,31 +139,30 @@ class ImageDataSource : LoaderManager.LoaderCallbacks<Cursor> {
                 albumInfo.updateTime = DateTool.getTimeFromLong(
                     DateTool.FMT_DATE_TIME,
                     if (imageAddTime / 1000000000 > 100) imageAddTime else (imageAddTime * 1000)
-                ).toString()
+                )
                 if (albumInfo.addTime.isNullOrEmpty()) albumInfo.addTime =
                     albumInfo.updateTime
                 albumInfo.save_time = albumInfo.updateTime
                 albumInfo.orientation =
-                    exifInterface?.getAttributeInt(ExifInterface.TAG_ORIENTATION, -1).toString()
+                    exifInterface?.getAttributeInt(ExifInterface.TAG_ORIENTATION, -1)?.toString()
                 albumInfo.x_resolution =
-                    exifInterface?.getAttribute(ExifInterface.TAG_IMAGE_WIDTH).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_IMAGE_WIDTH)
                 albumInfo.y_resolution =
-                    exifInterface?.getAttribute(ExifInterface.TAG_IMAGE_LENGTH).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_IMAGE_LENGTH)
                 albumInfo.gps_altitude =
-                    exifInterface?.getAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF)
                 albumInfo.gps_processing_method =
                     exifInterface?.getAttribute(ExifInterface.TAG_GPS_PROCESSING_METHOD)
-                        .toString()
                 albumInfo.lens_make =
-                    exifInterface?.getAttribute(ExifInterface.TAG_MAKE).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_MAKE)
                 albumInfo.lens_model =
-                    exifInterface?.getAttribute(ExifInterface.TAG_MODEL).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_MODEL)
                 albumInfo.focal_length =
-                    exifInterface?.getAttribute(ExifInterface.TAG_FOCAL_LENGTH).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_FOCAL_LENGTH)
                 albumInfo.flash =
-                    exifInterface?.getAttribute(ExifInterface.TAG_FLASH).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_FLASH)
                 albumInfo.software =
-                    exifInterface?.getAttribute(ExifInterface.TAG_SOFTWARE).toString()
+                    exifInterface?.getAttribute(ExifInterface.TAG_SOFTWARE)
                 albumInfos.add(albumInfo)
             }
             onImageLoadListener?.let { on ->

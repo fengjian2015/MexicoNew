@@ -18,7 +18,6 @@ class UpdateDialog constructor(updateBean :UpdateInfo): DialogFragment() {
     private var updateBean :UpdateInfo
     private lateinit var tvContent:TextView
     private lateinit var buttonUpload:Button
-    private lateinit var buttonWait:Button
 
     init {
         this.updateBean =updateBean
@@ -42,7 +41,6 @@ class UpdateDialog constructor(updateBean :UpdateInfo): DialogFragment() {
         val rootView: View = inflater.inflate(R.layout.layout_update_dialog, null)
         tvContent =rootView.findViewById(R.id.tv_content)
         buttonUpload =rootView.findViewById(R.id.buttonUpload)
-        buttonWait =rootView.findViewById(R.id.buttonWait)
         initData()
         return rootView
     }
@@ -58,19 +56,14 @@ class UpdateDialog constructor(updateBean :UpdateInfo): DialogFragment() {
             intent.data = content_url
             startActivity(intent)
         }
-        buttonWait.setOnClickListener {
-            //忽略
-            dismissAllowingStateLoss()
-        }
+
     }
 
     fun initButton(nowTxt:String){
         if (updateBean.must == 1){
             buttonUpload.visibility = View.VISIBLE
-            buttonWait.visibility = View.GONE
         }else{
             buttonUpload.visibility = View.VISIBLE
-            buttonWait.visibility = View.VISIBLE
         }
     }
 }

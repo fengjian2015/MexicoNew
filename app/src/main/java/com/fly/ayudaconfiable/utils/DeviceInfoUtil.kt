@@ -118,18 +118,11 @@ object DeviceInfoUtil {
 
     fun getIMEI(): String {
         var IMEI = "000000000000000"
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            IMEI = getAndroidID().toString()
-        } else {
-            IMEI =
-                (MyApplication.application.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager).deviceId
-            if (TextUtils.isEmpty(IMEI)) {
-                IMEI = getAndroidID().toString()
-            }
-            if (TextUtils.isEmpty(IMEI)) {
-                IMEI = getDevicesId()
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//            IMEI = getAndroidID().toString()
+//        } else {
+//            IMEI = (MyApplication.application.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager).deviceId
+//        }
         return IMEI
     }
 

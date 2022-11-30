@@ -9,7 +9,7 @@
     >
     <LinearLayout
         android:layout_width="290dp"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@mipmap/bg_update"
         android:paddingBottom="20dp"
@@ -17,35 +17,31 @@
         <TextView
             android:id="@+id/tv_content"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
             android:paddingHorizontal="45dp"
-            android:textColor="#2D2E39"
+            android:textColor="#ff13ce95"
+            android:textSize="18sp"
+            tootls:text="Nueva versión disponible"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="19dp"
+            android:text="Por favor, actualice a la última."
+            android:textColor="#ff333333"
             android:textSize="14sp"
-            tootls:text="1.三个发射点范德萨发生的方式啊\n2.的萨芬撒旦发射点1.三个发射点范德萨发生的方式啊\n2.的萨芬撒旦发射点1.三个发射点范德萨发生的方式啊\n2.的萨芬撒旦发射点1.三个发射点范德萨发生的方式啊\n2.的萨芬撒旦发射点"/>
-
+            />
         <Button
             android:id="@+id/buttonUpload"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginHorizontal="55dp"
-            android:text="@string/update_update_now"
-            android:textColor="#FFFFFF"
-            android:textSize="17sp"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="10dp"
-            />
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="36dp"
+            android:background="@mipmap/bt_bg"
+            android:textColor="#ffffffff"
+            android:layout_marginTop="60dp"
+            android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/buttonWait"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginHorizontal="55dp"
-            android:text="@string/update_update_ignorar"
-            android:textColor="#322D2D"
-            android:textSize="16sp"
-            />
     </LinearLayout>
 
 </LinearLayout>

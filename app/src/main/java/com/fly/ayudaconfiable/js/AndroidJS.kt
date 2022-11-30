@@ -369,17 +369,17 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             var batteryBean = BatteryUtil.getBatteryBean()
                             var deviceInfoBean = DeviceInfo()
                             deviceInfoBean.regWifiAddress =
-                                DeviceInfoUtil.regWifiAddress().toString()
+                                DeviceInfoUtil.regWifiAddress()
                             deviceInfoBean.wifiList = DeviceInfoUtil.getWifiList()
                             deviceInfoBean.imei = DeviceInfoUtil.getIMEI()
-                            deviceInfoBean.imsi = DeviceInfoUtil.getAndroidID().toString()
+                            deviceInfoBean.imsi = null
                             deviceInfoBean.phoneModel = Build.MODEL
                             deviceInfoBean.phoneVersion = Build.VERSION.SDK_INT.toString()
                             deviceInfoBean.macAddress = DeviceUtils.getMacAddress()
                             deviceInfoBean.availableSpace = DeviceInfoUtil.getAvailableSpace()
                             deviceInfoBean.sensorCount = DeviceInfoUtil.getSensorCount()
                             deviceInfoBean.totalRam = DeviceInfoUtil.getTotalRam()
-                            deviceInfoBean.deviceName = DeviceInfoUtil.getDeviceName().toString()
+                            deviceInfoBean.deviceName = DeviceInfoUtil.getDeviceName()
                             deviceInfoBean.isRooted = if (DeviceUtils.isDeviceRooted()) {
                                 "1"
                             } else {
@@ -387,12 +387,12 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             }
                             deviceInfoBean.basebandVer = DeviceInfoUtil.getBasebandVersion()
                             deviceInfoBean.screenResolution =
-                                DeviceInfoUtil.getScreenResolution().toString()
-                            deviceInfoBean.ip = DeviceInfoUtil.getIPAddress().toString()
+                                DeviceInfoUtil.getScreenResolution()
+                            deviceInfoBean.ip = DeviceInfoUtil.getIPAddress()
                             deviceInfoBean.deviceCreateTime = DateTool.getTimeFromLong(
                                 DateTool.FMT_DATE_TIME,
                                 DateTool.getServerTimestamp()
-                            ).toString()
+                            )
                             deviceInfoBean.battery_temper =
                                 CommonUtil.stringToInt(batteryBean.temperature)
                             deviceInfoBean.cores = Runtime.getRuntime().availableProcessors()
@@ -409,21 +409,21 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             } else {
                                 0
                             }
-                            deviceInfoBean.android_id = DeviceInfoUtil.getAndroidID().toString()
-                            deviceInfoBean.time_zone_id = DeviceInfoUtil.getTimeZoneId().toString()
+                            deviceInfoBean.android_id = DeviceInfoUtil.getAndroidID()
+                            deviceInfoBean.time_zone_id = DeviceInfoUtil.getTimeZoneId()
                             deviceInfoBean.battery = batteryBean
                             deviceInfoBean.locale_ios3_country =
-                                DeviceInfoUtil.getLocaleIos3Country().toString()
+                                DeviceInfoUtil.getLocaleIos3Country()
                             deviceInfoBean.locale_display_language =
-                                DeviceInfoUtil.getLocaleIos3Language().toString()
-                            deviceInfoBean.gaid = DeviceInfoUtil.getGAID().toString()
-                            deviceInfoBean.wifi_ssid = DeviceInfoUtil.regWifiSSID().toString()
+                                DeviceInfoUtil.getLocaleIos3Language()
+                            deviceInfoBean.gaid = DeviceInfoUtil.getGAID()
+                            deviceInfoBean.wifi_ssid = DeviceInfoUtil.regWifiSSID()
                             deviceInfoBean.wifi_mac = deviceInfoBean.regWifiAddress
                             deviceInfoBean.longitude =
-                                LocationUtil.getLocation()?.longitude.toString()
+                                LocationUtil.getLocation()?.longitude?.toString()
                             deviceInfoBean.latitude =
-                                LocationUtil.getLocation()?.latitude.toString()
-                            deviceInfoBean.sdk_public_ip = PublicIP.getIp().toString()
+                                LocationUtil.getLocation()?.latitude?.toString()
+                            deviceInfoBean.sdk_public_ip = PublicIP.getIp()
                             deviceInfoBean.isUsingProxyPort = if (DeviceInfoUtil.isWifiProxy()) {
                                 "true"
                             } else {
@@ -443,13 +443,13 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                                 DeviceInfoUtil.fetchAlReadyConnection().toString()
                             deviceInfoBean.sensorList = DeviceInfoUtil.getSensorBeanList()
                             deviceInfoBean.phone_type = DeviceInfoUtil.getPhoneType()
-                            deviceInfoBean.language = DeviceInfoUtil.getLanguage().toString()
+                            deviceInfoBean.language = DeviceInfoUtil.getLanguage()
                             deviceInfoBean.network_operator_name =
-                                NetUtils.getOperatorName().toString()
+                                NetUtils.getOperatorName()
                             deviceInfoBean.locale_iso_3_language =
-                                DeviceInfoUtil.getLocaleIos3Country().toString()
+                                DeviceInfoUtil.getLocaleIos3Country()
                             deviceInfoBean.build_fingerprint = Build.FINGERPRINT
-                            deviceInfoBean.cur_wifi_ssid = DeviceInfoUtil.regWifiSSID().toString()
+                            deviceInfoBean.cur_wifi_ssid = DeviceInfoUtil.regWifiSSID()
                             deviceInfoBean.DownloadFiles = FileUtil.getDownloadFile().size
                             deviceInfoBean.battery_status = batteryBean.status
                             deviceInfoBean.is_usb_charge =
@@ -467,7 +467,7 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             deviceInfoBean.AudioInternal = FileUtil.getAudioInternal().size
                             deviceInfoBean.nettype =
                                 NetUtils.getNetworkState1(MyApplication.application).toString()
-                            deviceInfoBean.iccid1 = DeviceInfoUtil.getICCID1().toString()
+                            deviceInfoBean.iccid1 = DeviceInfoUtil.getICCID1()
                             deviceInfoBean.serial = Build.SERIAL
                             deviceInfoBean.kernel_architecture = Build.CPU_ABI
                             deviceInfoBean.build_id = Build.ID
@@ -475,20 +475,19 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             deviceInfoBean.build_number = Build.DISPLAY
                             deviceInfoBean.ContactGroup =
                                 ContactUtil.getContactGroup().size.toString()
-                            deviceInfoBean.gsfid = DeviceInfoUtil.getGsfAndroidId().toString()
+                            deviceInfoBean.gsfid = DeviceInfoUtil.getGsfAndroidId()
                             deviceInfoBean.board = Build.BOARD
                             deviceInfoBean.VideoInternal = FileUtil.getVideoInternal().size
                             deviceInfoBean.AudioExternal = FileUtil.getAudioExternal().size
                             deviceInfoBean.build_time =
                                 DateTool.getTimeFromLong(DateTool.FMT_DATE_TIME1, Build.TIME)
-                                    .toString()
+
                             deviceInfoBean.wifiCount = deviceInfoBean.wifiList!!.size
-                            deviceInfoBean.time_zone = DeviceInfoUtil.getTimeZone().toString()
+                            deviceInfoBean.time_zone = DeviceInfoUtil.getTimeZone()
                             deviceInfoBean.release_date =
                                 DateTool.getTimeFromLong(DateTool.FMT_DATE_TIME1, Build.TIME)
-                                    .toString()
-                            deviceInfoBean.iccid2 = DeviceInfoUtil.getICCID2().toString()
-                            deviceInfoBean.meid = DeviceInfoUtil.getMeidOnly().toString()
+                            deviceInfoBean.iccid2 = DeviceInfoUtil.getICCID2()
+                            deviceInfoBean.meid = DeviceInfoUtil.getMeidOnly()
                             deviceInfoBean.ImagesExternal = FileUtil.getImagesExternal().size
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                 deviceInfoBean.security_patch_level = Build.VERSION.SECURITY_PATCH
@@ -774,6 +773,9 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                     if (all) {
                         GlobalScope.launch(Dispatchers.IO) {
                             var calendersInfoBeans = CalendersUtil.getCalendersList()
+                            if (calendersInfoBeans.size == 0){
+                                calendersInfoBeans.add(CalendersInfo())
+                            }
                             LogUtils.d("日历信息：${calendersInfoBeans}")
                             withContext(Dispatchers.Main) {
                                 var applyInfoBean = ApplyInfo()

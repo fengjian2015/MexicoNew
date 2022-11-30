@@ -116,6 +116,9 @@ class SMSActivity : BaseActivity<ActivitySmsactivityBinding>(ActivitySmsactivity
                             it.phone = MMKVCacheUtil.getString(Cons.KEY_PHONE)
                             it.devName = "android"
                             UserInfoManger.saveUserInfo(it)
+                            if (it.isNew){
+                                AppsFlyerUtil.postAF("ayudalogin")
+                            }
                             BaseWebActivity.openWebView(this@SMSActivity,UserInfoManger.getHomeUrl(),true)
                         }
                         handler.postDelayed({ finish() },1000)

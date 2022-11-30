@@ -7,7 +7,7 @@ import com.fly.ayudaconfiable.MyApplication
 import com.fly.ayudaconfiable.bean.ContactInfo
 
 object ContactUtil {
-    private  val contacts: ArrayList<ContactInfo> = ArrayList()
+    private  var contacts: ArrayList<ContactInfo> = ArrayList()
     @SuppressLint("Range")
     fun getContactInfoList():ArrayList<ContactInfo>{
         if(contacts.size>0) return contacts;
@@ -19,17 +19,39 @@ object ContactUtil {
                 val time = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_LAST_UPDATED_TIMESTAMP))
                 val toString = DateTool.getTimeFromLong(DateTool.FMT_DATE_TIME, time.toLong()).toString()
                 temp.lastUpdateTime = toString
-                temp.create_time = toString
+                temp.record_create_time = toString
                 temp.mobile = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                temp.mobile = temp.mobile.replace(" ","")
                 contacts.add(temp)
             }
             cursor.close()
+            contacts = getUniqueList(contacts)
             return contacts
         } catch (e: Exception) {
             e.printStackTrace()
         }
         return contacts
     }
+
+    /**
+     * 去除重复对象
+     *
+     * @param al
+     * @return
+     */
+    fun getUniqueList(al: ArrayList<ContactInfo>): ArrayList<ContactInfo> {
+        val tempAl = ArrayList<ContactInfo>()
+        val it: Iterator<ContactInfo> = al.iterator()
+        while (it.hasNext()) {
+            val obj = it.next()!!
+            if (!tempAl.contains(obj)) //不存在则添加
+            {
+                tempAl.add(obj)
+            }
+        }
+        return tempAl
+    }
+
 
     fun getContactGroup():ArrayList<String>{
         var contactGroup  = ArrayList<String>()

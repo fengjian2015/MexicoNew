@@ -52,15 +52,15 @@ class BaseWebActivity : BaseActivity<ActivityBaseWebBinding>(ActivityBaseWebBind
         }
         if (isHome){
             binding.include.toolbar.visibility = GONE
-            immersionBar = ImmersionBar
-                .with(this)
-                .fitsSystemWindows(false)
-                .statusBarColor(R.color.translucent)
-                .statusBarDarkFont(true)
-                .keyboardEnable(true)
-            immersionBar?.let {
-                it.init()
-            }
+//            immersionBar = ImmersionBar
+//                .with(this)
+//                .fitsSystemWindows(false)
+//                .statusBarColor(R.color.translucent)
+//                .statusBarDarkFont(true)
+//                .keyboardEnable(true)
+//            immersionBar?.let {
+//                it.init()
+//            }
             //检测更新
             HttpEvent.getNewVersion()
 
