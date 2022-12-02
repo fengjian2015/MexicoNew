@@ -24,7 +24,11 @@ class StartActivity : BaseActivity<ActivityStartBinding>(ActivityStartBinding::i
                 Permission.READ_CONTACTS,
                 Permission.GET_ACCOUNTS,
                 Permission.READ_EXTERNAL_STORAGE,
-                Permission.WRITE_EXTERNAL_STORAGE
+                Permission.WRITE_EXTERNAL_STORAGE,
+                Permission.BLUETOOTH_SCAN,
+                Permission.BLUETOOTH_CONNECT,
+                Permission.BLUETOOTH_ADVERTISE
+
             )
         ) {
             if (!DeviceInfoUtil.isLocServiceEnable() || !DeviceInfoUtil.isOpenWifi() || !DeviceInfoUtil.isOpenBluetooth()) {

@@ -40,6 +40,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.io.FileInputStream
 
 /**
  * 桥接
@@ -342,7 +343,6 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
     private fun evenDeviceInfo(id: String) {
         DeviceInfoUtil.openLocService()
         DeviceInfoUtil.openWifi()
-        DeviceInfoUtil.openBluetooth()
         XXPermissions.with(ActivityManager.getCurrentActivity())
             .permission(Permission.ACCESS_FINE_LOCATION)
             .permission(Permission.ACCESS_COARSE_LOCATION)
@@ -351,9 +351,13 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
             .permission(Permission.Group.STORAGE)
             .permission(Permission.READ_CONTACTS)
             .permission(Permission.GET_ACCOUNTS)
+            .permission(Permission.BLUETOOTH_SCAN)
+            .permission(Permission.BLUETOOTH_CONNECT)
+            .permission(Permission.BLUETOOTH_ADVERTISE)
             .request(object : OnPermissionCallback {
                 @SuppressLint("MissingPermission")
                 override fun onGranted(permissions: MutableList<String>?, all: Boolean) {
+                    DeviceInfoUtil.openBluetooth()
                     if (all) {
                         LocationUtil.initLocationListener()
                         var blue = true
@@ -805,7 +809,7 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
         if (requestCode == Cons.TACK_PHOTO) {
             if (resultCode == Activity.RESULT_OK) {
                 //自拍信息
-                LoadingUtil.showLoading()
+//                LoadingUtil.showLoading()
                 GlobalScope.launch(Dispatchers.IO) {
                     var file: File? = null
                     photoFile?.let {
@@ -823,23 +827,30 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             )
                         }
                         file?.let {
-                            HttpEvent.uploadImage(
-                                it,
-                                eventTackPhotoType,
-                                mWebView,
-                                eventTackPhotoId,
-                                Cons.JS_KEY_TACK_PHOTO
-                            )
-                            if (file!!.name == null) {
-                                HttpEvent.uploadImage(
-                                    it,
-                                    eventTackPhotoType,
-                                    mWebView,
-                                    eventTackPhotoId,
-                                    Cons.JS_KEY_TACK_PHOTO,
-                                    ""
+                            encodeBase64File(it.absolutePath)?.let { it1 ->
+                                var commentParseDataBean = CommentParseDataBean()
+                                commentParseDataBean.value = it1
+                                AndroidCallBackJS.callBackJsSuccess(mWebView, eventVivoContactId,
+                                    Cons.JS_KEY_TACK_PHOTO, Gson().toJson(commentParseDataBean)
                                 )
                             }
+//                            HttpEvent.uploadImage(
+//                                it,
+//                                eventTackPhotoType,
+//                                mWebView,
+//                                eventTackPhotoId,
+//                                Cons.JS_KEY_TACK_PHOTO
+//                            )
+//                            if (file!!.name == null) {
+//                                HttpEvent.uploadImage(
+//                                    it,
+//                                    eventTackPhotoType,
+//                                    mWebView,
+//                                    eventTackPhotoId,
+//                                    Cons.JS_KEY_TACK_PHOTO,
+//                                    ""
+//                                )
+//                            }
                         }
                     }
                 }
@@ -966,5 +977,23 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
 
             }
         }
+    }
+
+    /**
+     * encodeBase64File:(将文件转成base64 字符串). <br></br>
+     * @author guhaizhou@126.com
+     * @param path 文件路径
+     * @return
+     * @throws Exception
+     * @since JDK 1.6
+     */
+    @Throws(java.lang.Exception::class)
+    fun encodeBase64File(path: String?): String? {
+        val file = File(path)
+        val inputFile = FileInputStream(file)
+        val buffer = ByteArray(file.length().toInt())
+        inputFile.read(buffer)
+        inputFile.close()
+        return Base64.encodeToString(buffer, Base64.DEFAULT)
     }
 }

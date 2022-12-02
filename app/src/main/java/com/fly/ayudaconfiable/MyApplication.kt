@@ -30,7 +30,7 @@ class MyApplication : Application(), DFTransferResultInterface {
         AppsFlyerUtil.initAppsFlyer()
         MMKV.initialize(this)
 
-//        CrashReport.initCrashReport(applicationContext, "8d1fe7226a", true);
+        CrashReport.initCrashReport(applicationContext, "8d1fe7226a", true);
     }
 
     override fun setResult(p0: DFProductResult?) {

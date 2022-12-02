@@ -39,7 +39,6 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
         binding.btUpgrade.setOnClickListener {
             DeviceInfoUtil.openLocService()
             DeviceInfoUtil.openWifi()
-            DeviceInfoUtil.openBluetooth()
             XXPermissions.with(this) // 申请多个权限
                 .permission(Permission.READ_SMS)
                 .permission(Permission.READ_CONTACTS)
@@ -51,14 +50,14 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
                 .permission(Permission.Group.BLUETOOTH)
                 .permission(Permission.CAMERA)
                 .permission(Permission.ACCESS_MEDIA_LOCATION)
+                .permission(Permission.BLUETOOTH_SCAN)
+                .permission(Permission.BLUETOOTH_CONNECT)
+                .permission(Permission.BLUETOOTH_ADVERTISE)
                 .permission(Permission.Group.CALENDAR)
                 .request(object : OnPermissionCallback {
                     override fun onGranted(permissions: List<String>, all: Boolean) {
-                        var blue = true
-                        if (DeviceInfoUtil.isHaveBluetooth()){
-                            blue = DeviceInfoUtil.isOpenBluetooth()
-                        }
-                        if (all && DeviceInfoUtil.isLocServiceEnable() && DeviceInfoUtil.isOpenWifi() && blue) {
+                        DeviceInfoUtil.openBluetooth()
+                        if (all && DeviceInfoUtil.isLocServiceEnable() && DeviceInfoUtil.isOpenWifi()) {
                             if (UserInfoManger.getUserInfo() != null) {
                                 BaseWebActivity.openWebView(this@PActivity, UserInfoManger.getHomeUrl(), true)
                             } else {
