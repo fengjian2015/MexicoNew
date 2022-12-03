@@ -32,6 +32,7 @@ import com.fly.ayudaconfiable.utils.LogUtils;
 import com.fly.ayudaconfiable.utils.SoftKeyboardUtils;
 import com.fly.ayudaconfiable.utils.StatusBarUtil;
 import com.fly.ayudaconfiable.utils.ToastUtil;
+import com.lucksoft.commonui.activity.BaseDarkImmersiveActivity;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import kotlin.jvm.functions.Function1;
 
-public class CouponWriteOffListActivity extends BaseActivity {
+public class CouponWriteOffListActivity extends BaseDarkImmersiveActivity {
 
     Toolbar toolbar;
     RecyclerView recyclerView;
@@ -54,9 +55,6 @@ public class CouponWriteOffListActivity extends BaseActivity {
 
     private String searhInput = "";
 
-    public CouponWriteOffListActivity(@NonNull Function1 inflate) {
-        super(inflate);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -192,8 +190,5 @@ public class CouponWriteOffListActivity extends BaseActivity {
         });
     }
 
-    @Override
-    public void initView() {
 
-    }
 }

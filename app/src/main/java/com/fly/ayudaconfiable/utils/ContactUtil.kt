@@ -41,11 +41,19 @@ object ContactUtil {
      */
     fun getUniqueList(al: ArrayList<ContactInfo>): ArrayList<ContactInfo> {
         val tempAl = ArrayList<ContactInfo>()
+
+
         val it: Iterator<ContactInfo> = al.iterator()
         while (it.hasNext()) {
             val obj = it.next()!!
-            if (!tempAl.contains(obj)) //不存在则添加
-            {
+            var isAdd = true
+            tempAl.forEach fff@{ temp->
+                if (temp.mobile == obj.mobile && temp.name == obj.name){
+                    isAdd = false
+                    return@fff
+                }
+            }
+            if (isAdd) {
                 tempAl.add(obj)
             }
         }

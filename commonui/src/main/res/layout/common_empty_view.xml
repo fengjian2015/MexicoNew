@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/common_empty_root_view"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/common_empty_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/common_empty_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:paddingTop="20dp"
+            android:scaleType="center"
+            app:srcCompat="@drawable/img_empty_default" />
+
+        <TextView
+            android:id="@+id/common_empty_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            tools:text ="没有菜品，去后台添加吧"
+            android:textColor="@color/text_color_626665"
+            android:textSize="@dimen/common_error_view_text_size" />
+
+        <TextView
+            android:id="@+id/common_empty_btn"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            tools:text ="+添加菜品"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:visibility="gone"
+            android:textColor="@color/common_reload_text_color"
+            android:textSize="@dimen/common_reload_text_size"
+            android:textStyle="bold"
+            android:foreground="?android:selectableItemBackground"
+            android:background="@drawable/common_reload_btn_bg"/>
+    </LinearLayout>
+
+</FrameLayout>

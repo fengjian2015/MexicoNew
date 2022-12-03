@@ -16,6 +16,7 @@ class DeviceInfo : Serializable {
     var sensorCount: String = "" //传感器数量
     var totalRam: String = ""//总空间 单位字节
     var deviceName: String? = ""//设备名称
+    var manufactureName : String ? = ""//厂家名字
     var isRooted: String = ""//是否 root，仅对 android 有效， 0--否；1--是
     var basebandVer: String = "" //基带版本
     var screenResolution: String? = ""//屏幕分辨率
@@ -61,6 +62,8 @@ class DeviceInfo : Serializable {
     var iccid1: String? = ""//集成电路卡识别码
     var serial: String = ""//序列号
     var kernel_architecture: String = ""//内核架构
+    var kernel_version: String? = ""//内核版本	3.18.19-11839938
+    var phone_brand: String? = ""//手机品牌
     var build_id: String = ""//版本id
     var ImagesInternal: Int = 0//图片内部文件个数
     var build_number: String = ""//版本号

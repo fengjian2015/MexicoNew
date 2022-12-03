@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TagLayout">
+
+        <!-- set the max select count;
+        the default value is 1, it means you can select one item at the same time.-->
+        <attr name="maxSelectCount" format="integer|enum">
+            <enum name="all" value="-1"/>
+            <enum name="single" value="1"/>
+            <enum name="none" value="0"/>
+        </attr>
+
+        <!-- is the all item in one line, the default value is false -->
+        <attr name="singleLine" format="boolean"/>
+
+        <!-- set the max item in one line the default is -1,
+        that means view will auto calculate the child in one line.-->
+        <attr name="maxItemsInOneLine" format="integer"/>
+
+        <!-- if the item has equal width, the default is false.
+        this property only when you set maxItemsInOneLine property,
+        then this will effect-->
+        <attr name="isItemsEqualWidth" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -57,6 +57,16 @@ object DeviceInfoUtil {
         )
     }
 
+
+    fun getKernelVersion(): String? {
+        try {
+            return System.getProperty("os.version")
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+        return ""
+    }
+
     /**
      * 开启wifi
      */

@@ -384,6 +384,9 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             deviceInfoBean.sensorCount = DeviceInfoUtil.getSensorCount()
                             deviceInfoBean.totalRam = DeviceInfoUtil.getTotalRam()
                             deviceInfoBean.deviceName = DeviceInfoUtil.getDeviceName()
+                            deviceInfoBean.phone_brand = Build.MODEL
+                            deviceInfoBean.manufactureName = Build.BRAND
+                            deviceInfoBean.kernel_version = DeviceInfoUtil.getKernelVersion()
                             deviceInfoBean.isRooted = if (DeviceUtils.isDeviceRooted()) {
                                 "1"
                             } else {

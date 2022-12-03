@@ -30,3 +30,4 @@ rootProject.name = "MexicoApp"
 include ':app'
 include ':util'
 include ':DFLivenessLibrary'
+include ':commonui'

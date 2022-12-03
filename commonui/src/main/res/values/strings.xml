@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">commonui</string>
+    <string name="no_more">没有更多了！</string>
+    <string name="loading">加载中…</string>
+    <string name="load_error">加载失败，请重试！</string>
+    <string name="has_no_more_">暂无更多~</string>
+    <string name="has_reach_bottom">已经到底了～</string>
+</resources>
