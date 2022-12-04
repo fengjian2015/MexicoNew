@@ -25,6 +25,7 @@ import com.fly.ayudaconfiable.activity.StartActivity
 import com.fly.ayudaconfiable.bean.*
 import com.fly.ayudaconfiable.bean.event.HttpEvent
 import com.fly.ayudaconfiable.js.bean.AppJSBean
+import com.fly.ayudaconfiable.js.bean.CommentAFParseDataBean
 import com.fly.ayudaconfiable.js.bean.CommentParseDataBean
 import com.fly.ayudaconfiable.utils.*
 import com.google.gson.Gson
@@ -215,8 +216,8 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
     private fun eventAppsFlyer(id: String, data: Any?) {
         try {
             var commentParseDataBean =
-                Gson().fromJson(data.toString(), CommentParseDataBean::class.java)
-            AppsFlyerUtil.postAF(commentParseDataBean.value)
+                Gson().fromJson(data.toString(), CommentAFParseDataBean::class.java)
+            AppsFlyerUtil.postAF(commentParseDataBean.eventName)
             AndroidCallBackJS.callBackJsSuccess(mWebView, id, Cons.JS_KEY_APPS_FLYER)
         } catch (e: Exception) {
             e.printStackTrace()
