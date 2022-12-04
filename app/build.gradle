@@ -22,10 +22,10 @@ android {
     }
     signingConfigs {
         signingConfig {
-            keyAlias 'mexico'
-            keyPassword 'aassdd123'
-            storeFile file('mexico.jks')
-            storePassword 'aassdd123'
+            keyAlias 'key0'
+            keyPassword 'qweasdzxc'
+            storeFile file('new.jks')
+            storePassword 'qweasdzxc'
             v2SigningEnabled true
         }
     }
