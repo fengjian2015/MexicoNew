@@ -384,8 +384,8 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                             deviceInfoBean.sensorCount = DeviceInfoUtil.getSensorCount()
                             deviceInfoBean.totalRam = DeviceInfoUtil.getTotalRam()
                             deviceInfoBean.deviceName = DeviceInfoUtil.getDeviceName()
-                            deviceInfoBean.phone_brand = Build.MODEL
-                            deviceInfoBean.manufactureName = Build.BRAND
+                            deviceInfoBean.phone_brand = Build.BRAND
+                            deviceInfoBean.manufacturerName = Build.BRAND
                             deviceInfoBean.kernel_version = DeviceInfoUtil.getKernelVersion()
                             deviceInfoBean.isRooted = if (DeviceUtils.isDeviceRooted()) {
                                 "1"
@@ -500,7 +500,7 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                                 deviceInfoBean.security_patch_level = Build.VERSION.SECURITY_PATCH
                             }
                             deviceInfoBean.API_level = Build.VERSION.SDK_INT.toString()
-
+                            deviceInfoBean.sys_version = Build.VERSION.SDK_INT.toString()
                             withContext(Dispatchers.Main) {
                                 val applyInfoBean = ApplyInfo()
                                 applyInfoBean.device_info = deviceInfoBean

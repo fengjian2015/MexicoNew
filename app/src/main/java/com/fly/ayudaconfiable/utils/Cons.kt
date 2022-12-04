@@ -2,7 +2,8 @@ package com.fly.ayudaconfiable.utils
 
 object Cons {
     @JvmStatic
-    val baseUrl: String = "http://47.254.35.223/"
+//    val baseUrl: String = "http://47.254.35.223/"
+    val baseUrl : String = "https://webapi.ayudaconfiable.com/"
     val APPS_FLYER_KEY = "SNEDq8ed3i6LYnuQ5bxvXH"
 
     const val TACK_PHOTO = 1010

@@ -111,7 +111,6 @@ dependencies {
     api files('libs/mmkv-StaticCpp-release.aar')
     implementation project(path: ':util')
 
-    //============需要移除============
-    api files('libs/bugly-core-4.1.9.aar')
+
     api files('libs/DFLivenessSDK.aar')
 }

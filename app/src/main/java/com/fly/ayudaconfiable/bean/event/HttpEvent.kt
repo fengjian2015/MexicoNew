@@ -241,7 +241,7 @@ object HttpEvent {
                 .addFormDataPart("oldPath", "")
                 .build()
             val request: Request = Request.Builder()
-                .url(Cons.baseUrl + "api/system/uploadimg")
+                .url(Cons.baseUrl + "system/uploadimg")
                 .post(body)
                 .build()
             val call: okhttp3.Call = client.newCall(request)

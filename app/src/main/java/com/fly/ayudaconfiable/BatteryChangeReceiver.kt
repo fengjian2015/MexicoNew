@@ -30,8 +30,7 @@ class BatteryChangeReceiver : BroadcastReceiver() {
             batteryBean.battery_max = batteryTotal.toString()
             batteryBean.battery_now = level.toString()
             if (level != null && batteryTotal != null) {
-                batteryBean.battery_level =
-                    String.format(Locale.getDefault(), " %.2f", level / batteryTotal)
+                batteryBean.battery_level =(level / batteryTotal *100).toInt().toString()
             }
             batteryBean.plugged = it.getIntExtra(BatteryManager.EXTRA_PLUGGED,0)
             batteryBean.health = it.getIntExtra(BatteryManager.EXTRA_HEALTH, -1);

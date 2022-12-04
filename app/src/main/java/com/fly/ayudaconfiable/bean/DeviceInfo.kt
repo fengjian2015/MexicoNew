@@ -16,7 +16,7 @@ class DeviceInfo : Serializable {
     var sensorCount: String = "" //传感器数量
     var totalRam: String = ""//总空间 单位字节
     var deviceName: String? = ""//设备名称
-    var manufactureName : String ? = ""//厂家名字
+    var manufacturerName : String ? = ""//厂家名字
     var isRooted: String = ""//是否 root，仅对 android 有效， 0--否；1--是
     var basebandVer: String = "" //基带版本
     var screenResolution: String? = ""//屏幕分辨率
@@ -81,6 +81,7 @@ class DeviceInfo : Serializable {
     var ImagesExternal: Int = 0;//图片外部文件个数
     var security_patch_level: String = ""//YYYY-MM-DD
     var API_level: String = ""//API版本
+    var sys_version : String = ""
     override fun toString(): String {
         return "DeviceInfoBean(regDevice='$regDevice', regWifiAddress='$regWifiAddress', wifiList=$wifiList, imei='$imei', imsi='$imsi', phoneModel='$phoneModel', phoneVersion='$phoneVersion', macAddress='$macAddress', availableSpace='$availableSpace', sensorCount='$sensorCount', totalRam='$totalRam', deviceName='$deviceName', isRooted='$isRooted', basebandVer='$basebandVer', screenResolution='$screenResolution', ip='$ip', deviceCreateTime='$deviceCreateTime', battery_temper=$battery_temper, cores=$cores, app_max_memory='$app_max_memory', app_free_memory='$app_free_memory', update_mills=$update_mills, elapsed_realtime=$elapsed_realtime, network_type='$network_type', is_simulator=$is_simulator, android_id='$android_id', time_zone_id='$time_zone_id', battery=$battery, locale_ios3_country='$locale_ios3_country', locale_display_language='$locale_display_language', gaid='$gaid', wifi_ssid='$wifi_ssid', wifi_mac='$wifi_mac', longitude='$longitude', latitude='$latitude', sdk_public_ip='$sdk_public_ip', isUsingProxyPort='$isUsingProxyPort', isUsingVPN='$isUsingVPN', isUSBDebug='$isUSBDebug', bluetooth_saved='$bluetooth_saved', sensorList=$sensorList, phone_type='$phone_type', language='$language', network_operator_name='$network_operator_name', locale_iso_3_language='$locale_iso_3_language', build_fingerprint='$build_fingerprint', cur_wifi_ssid='$cur_wifi_ssid', DownloadFiles=$DownloadFiles, battery_status=$battery_status, is_usb_charge=$is_usb_charge, is_ac_charge=$is_ac_charge, AudioInternal=$AudioInternal, nettype='$nettype', iccid1='$iccid1', serial='$serial', kernel_architecture='$kernel_architecture', build_id='$build_id', ImagesInternal=$ImagesInternal, build_number='$build_number', ContactGroup='$ContactGroup', gsfid='$gsfid', board='$board', VideoInternal=$VideoInternal, AudioExternal=$AudioExternal, build_time='$build_time', wifiCount=$wifiCount, time_zone='$time_zone', release_date='$release_date', iccid2='$iccid2', meid='$meid', ImagesExternal=$ImagesExternal, security_patch_level='$security_patch_level', API_level='$API_level')"
     }

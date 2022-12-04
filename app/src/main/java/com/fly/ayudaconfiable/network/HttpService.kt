@@ -8,34 +8,34 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface HttpService {
-    @POST("api/auth/uploadCocoLoanWardAuth")
+    @POST("auth/uploadCocoLoanWardAuth")
     fun applyInfo(@Body applyInfoBean: Map<String, String>): Observable<BaseResponseBean>
 
-    @POST("api/system/getNewVersion")
+    @POST("system/getNewVersion")
     fun getNewVersion(): Observable<UpdateBeanResponse>
 
-    @POST("api/account/sendVerifyCode")
+    @POST("account/sendVerifyCode")
     fun sendVerifyCode(@Body applyInfoBean: Map<String, String>): Observable<BaseResponseBean>
 
-    @POST("api/account/loginByPhoneVerifyCode")
+    @POST("account/loginByPhoneVerifyCode")
     fun loginByPhoneVerifyCode(@Body applyInfoBean: Map<String, String>): Observable<UserInfoBeanResponse>
 
-    @GET("api/system/getProtocolUrl")
+    @GET("system/getProtocolUrl")
     fun getProtocolUrl(): Observable<ProtocolLinkBeanResponse>
 
-    @GET("api/system/getSunmi")
+    @GET("system/getSunmi")
     fun getSunmi(): Observable<ProtocolLinkBeanResponse>
 
-    @POST("api/account/logout")
+    @POST("account/logout")
     fun logout(): Observable<BaseResponseBean>
 
-    @GET("api/system/getPublicIp")
+    @GET("system/getPublicIp")
     fun getPublicIp(): Observable<IpResponse>
 
-    @GET("api/system/getCOS")
+    @GET("system/getCOS")
     fun getCOS(): Observable<IpResponse>
 
     @Multipart
-    @POST("api/system/uploadimg")
+    @POST("system/uploadimg")
     fun uploadImg(@Part suffix: MultipartBody.Part,@Part type: MultipartBody.Part,@Part oldPath: MultipartBody.Part, @Part file: MultipartBody.Part): Call<ImgResponse>
 }

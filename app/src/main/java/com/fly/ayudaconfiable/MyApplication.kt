@@ -9,7 +9,6 @@ import com.fly.ayudaconfiable.utils.Cons
 import com.fly.ayudaconfiable.utils.LogUtils
 import com.liveness.dflivenesslibrary.DFProductResult
 import com.liveness.dflivenesslibrary.DFTransferResultInterface
-import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
 
 class MyApplication : Application(), DFTransferResultInterface {
@@ -30,7 +29,7 @@ class MyApplication : Application(), DFTransferResultInterface {
         AppsFlyerUtil.initAppsFlyer()
         MMKV.initialize(this)
 
-        CrashReport.initCrashReport(applicationContext, "8d1fe7226a", true);
+//        CrashReport.initCrashReport(applicationContext, "8d1fe7226a", true);
     }
 
     override fun setResult(p0: DFProductResult?) {
