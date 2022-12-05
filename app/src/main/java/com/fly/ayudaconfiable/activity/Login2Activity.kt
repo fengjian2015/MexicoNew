@@ -21,7 +21,7 @@ class Login2Activity : BaseActivity<ActivityLogin2Binding>(ActivityLogin2Binding
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
                 if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1), false)
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1), false,false)
             })
         UiUtil.tColorTextClick(spannableString,
             54,
@@ -29,7 +29,7 @@ class Login2Activity : BaseActivity<ActivityLogin2Binding>(ActivityLogin2Binding
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
                 if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false)
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false,false)
             })
         binding.ptv.text = spannableString
         binding.ptv.movementMethod = LinkMovementMethod.getInstance()

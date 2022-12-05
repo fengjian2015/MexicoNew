@@ -241,7 +241,7 @@ class AndroidJS constructor(webView: WebView, viewModelStoreOwner: ViewModelStor
                 ActivityManager.getCurrentActivity() as AppCompatActivity,
                 commentParseDataBean.value,
                 false
-            )
+                ,true)
         } catch (e: Exception) {
             e.printStackTrace()
             AndroidCallBackJS.callbackJsErrorOther(

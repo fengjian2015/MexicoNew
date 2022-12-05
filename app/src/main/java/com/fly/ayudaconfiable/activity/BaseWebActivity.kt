@@ -21,17 +21,20 @@ import kotlinx.coroutines.launch
 class BaseWebActivity : BaseActivity<ActivityBaseWebBinding>(ActivityBaseWebBinding::inflate),
     IWebView.OnTitleListener {
     var isHome: Boolean = false
+    var isShowTitle: Boolean = false
     var webUrl: String = ""
     private lateinit var appJS:AndroidJS
     private lateinit var batteryChangeReceiver:BatteryChangeReceiver;
 
     companion object{
         val WEB_IS_HOME = "WEB_IS_HOME"
+        val WEB_IS_SHOW_TITLE = "WEB_IS_SHOW_TITLE"
         val WEB_URL = "WEB_URL"
-        fun openWebView(activity: AppCompatActivity,url:String? ,boolean: Boolean){
+        fun openWebView(activity: AppCompatActivity,url:String? ,boolean: Boolean ,isShowTitle : Boolean){
             var intent = Intent(activity,BaseWebActivity::class.java)
             intent.putExtra(WEB_IS_HOME,boolean)
             intent.putExtra(WEB_URL,url)
+            intent.putExtra(WEB_IS_SHOW_TITLE,isShowTitle)
             activity.startActivity(intent)
         }
     }
@@ -46,6 +49,7 @@ class BaseWebActivity : BaseActivity<ActivityBaseWebBinding>(ActivityBaseWebBind
         binding.webview.getWebView().addJavascriptInterface(appJS,appJS.APP_CLIENT)
         isHome = intent.getBooleanExtra(WEB_IS_HOME, false)
         webUrl = intent.getStringExtra(WEB_URL).toString()
+        isShowTitle = intent.getBooleanExtra(WEB_IS_SHOW_TITLE, true)
 //        webUrl = "file:///android_asset/h5.html"
         if (!webUrl.startsWith("http") && !webUrl.startsWith("file")){
             webUrl = "https://$webUrl"
@@ -103,6 +107,7 @@ class BaseWebActivity : BaseActivity<ActivityBaseWebBinding>(ActivityBaseWebBind
 
     override fun webTitle(title: String) {
         GlobalScope.launch(Dispatchers.Main) {
+            if (isShowTitle)
             binding.include.toolbarTitle.text = title
         }
     }

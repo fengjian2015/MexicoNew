@@ -40,7 +40,7 @@ class StartActivity : BaseActivity<ActivityStartBinding>(ActivityStartBinding::i
                 startActivity(Intent(this, Login2Activity::class.java))
                 finish()
             } else {
-                BaseWebActivity.openWebView(this, UserInfoManger.getHomeUrl(), true)
+                BaseWebActivity.openWebView(this, UserInfoManger.getHomeUrl(), true,true)
                 finish()
             }
             if (UserInfoManger.getUserInfo() != null && "123" == UserInfoManger.getUserInfo()?.tsd){

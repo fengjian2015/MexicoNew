@@ -22,7 +22,7 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
                 if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1), false)
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1), false,false)
             })
         UiUtil.tColorTextClick(spannableString,
             349,
@@ -30,7 +30,7 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
                 if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false)
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false,false)
             })
         binding.tvHola.text = spannableString
         binding.tvHola.movementMethod = LinkMovementMethod.getInstance()
@@ -59,7 +59,7 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
                         DeviceInfoUtil.openBluetooth()
                         if (all && DeviceInfoUtil.isLocServiceEnable() && DeviceInfoUtil.isOpenWifi()) {
                             if (UserInfoManger.getUserInfo() != null) {
-                                BaseWebActivity.openWebView(this@PActivity, UserInfoManger.getHomeUrl(), true)
+                                BaseWebActivity.openWebView(this@PActivity, UserInfoManger.getHomeUrl(), true,true)
                             } else {
                                 startActivity(Login2Activity::class.java)
                             }

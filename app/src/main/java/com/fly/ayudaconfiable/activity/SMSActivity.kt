@@ -58,7 +58,7 @@ class SMSActivity : BaseActivity<ActivitySmsactivityBinding>(ActivitySmsactivity
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
                 if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1), false)
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_1), false,false)
             })
         UiUtil.tColorTextClick(spannableString,
             54,
@@ -66,7 +66,7 @@ class SMSActivity : BaseActivity<ActivitySmsactivityBinding>(ActivitySmsactivity
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
                 if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false)
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false,false)
             })
         binding.ptv.text = spannableString
         binding.ptv.movementMethod = LinkMovementMethod.getInstance()
@@ -119,7 +119,7 @@ class SMSActivity : BaseActivity<ActivitySmsactivityBinding>(ActivitySmsactivity
                             if (it.isNew){
                                 AppsFlyerUtil.postAF("ayudalogin")
                             }
-                            BaseWebActivity.openWebView(this@SMSActivity,UserInfoManger.getHomeUrl(),true)
+                            BaseWebActivity.openWebView(this@SMSActivity,UserInfoManger.getHomeUrl(),true,true)
                         }
                         handler.postDelayed({ finish() },1000)
                     }else{
