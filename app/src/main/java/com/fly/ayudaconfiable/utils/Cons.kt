@@ -78,11 +78,7 @@ object Cons {
 
     val KEY_PROTOCAL_1 ="PROTOCAL_1"
     val KEY_PROTOCAL_2 ="PROTOCAL_2"
-    val KEY_PROTOCAL_3 ="PROTOCAL_3"
-    val KEY_PROTOCAL_4 ="PROTOCAL_4"
-    val KEY_PROTOCAL_5 ="PROTOCAL_5"
-    val KEY_PROTOCAL_6 ="PROTOCAL_6"
-    val KEY_PROTOCAL_7 ="PROTOCAL_7"
+
 
     const val LoginInfo = "v8frontcashclientlogin"
     const val PrintParam = "localprint"

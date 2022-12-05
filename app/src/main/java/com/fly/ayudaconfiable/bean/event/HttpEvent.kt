@@ -22,11 +22,6 @@ import com.fly.ayudaconfiable.utils.*
 import com.fly.ayudaconfiable.utils.Cons.KEY_AF_CHANNEL
 import com.fly.ayudaconfiable.utils.Cons.KEY_PROTOCAL_1
 import com.fly.ayudaconfiable.utils.Cons.KEY_PROTOCAL_2
-import com.fly.ayudaconfiable.utils.Cons.KEY_PROTOCAL_3
-import com.fly.ayudaconfiable.utils.Cons.KEY_PROTOCAL_4
-import com.fly.ayudaconfiable.utils.Cons.KEY_PROTOCAL_5
-import com.fly.ayudaconfiable.utils.Cons.KEY_PROTOCAL_6
-import com.fly.ayudaconfiable.utils.Cons.KEY_PROTOCAL_7
 import com.fly.ayudaconfiable.utils.LogUtils.d
 import com.fly.ayudaconfiable.weight.UpdateDialog
 import com.google.gson.Gson
@@ -89,22 +84,12 @@ object HttpEvent {
             .subscribe(object : HttpResponse<ProtocolLinkBeanResponse>() {
                 override fun businessSuccess(data: ProtocolLinkBeanResponse) {
                     if (data.code == 200){
-                        data.protocolUrlBeans?.let {
+                        data.data?.let {
                             for (protocolUrlBean in it){
-                                if (protocolUrlBean.protocalType == 1){
+                                if (protocolUrlBean.protocalType == 2){
                                     MMKVCacheUtil.putString(KEY_PROTOCAL_1,protocolUrlBean.url)
-                                } else if (protocolUrlBean.protocalType == 2){
+                                } else if (protocolUrlBean.protocalType == 1){
                                     MMKVCacheUtil.putString(KEY_PROTOCAL_2,protocolUrlBean.url)
-                                }else if (protocolUrlBean.protocalType == 3){
-                                    MMKVCacheUtil.putString(KEY_PROTOCAL_3,protocolUrlBean.url)
-                                }else if (protocolUrlBean.protocalType == 4){
-                                    MMKVCacheUtil.putString(KEY_PROTOCAL_4,protocolUrlBean.url)
-                                }else if (protocolUrlBean.protocalType == 5){
-                                    MMKVCacheUtil.putString(KEY_PROTOCAL_5,protocolUrlBean.url)
-                                }else if (protocolUrlBean.protocalType == 6){
-                                    MMKVCacheUtil.putString(KEY_PROTOCAL_6,protocolUrlBean.url)
-                                }else if (protocolUrlBean.protocalType == 7){
-                                    MMKVCacheUtil.putString(KEY_PROTOCAL_7,protocolUrlBean.url)
                                 }
                             }
                         }

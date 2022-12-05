@@ -65,8 +65,8 @@ class SMSActivity : BaseActivity<ActivitySmsactivityBinding>(ActivitySmsactivity
             79,
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
-                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_6) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_6), false)
+                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false)
             })
         binding.ptv.text = spannableString
         binding.ptv.movementMethod = LinkMovementMethod.getInstance()
@@ -97,7 +97,7 @@ class SMSActivity : BaseActivity<ActivitySmsactivityBinding>(ActivitySmsactivity
     private fun login(){
         val map: MutableMap<String, String> = HashMap()
         map["Phone"] = MMKVCacheUtil.getString(Cons.KEY_PHONE)
-        map["Code"] = binding.sendSmsCode.text.toString()
+        map["Code"] = binding.edtv.text.toString()
         map["appsFlyerId"] = AppsFlyerLib.getInstance().getAppsFlyerUID(MyApplication.application)
         map["deviceModel"] = Build.MODEL
         map["channelCode"] = MMKVCacheUtil.getString(Cons.KEY_AF_CHANNEL)

@@ -29,8 +29,8 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
             374,
             Color.parseColor("#F69800"),
             View.OnClickListener { view: View? ->
-                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_6) == null) return@OnClickListener
-                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_6), false)
+                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false)
             })
         binding.tvHola.text = spannableString
         binding.tvHola.movementMethod = LinkMovementMethod.getInstance()
