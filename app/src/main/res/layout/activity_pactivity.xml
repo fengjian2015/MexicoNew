@@ -93,6 +93,17 @@
                     android:textColor="#ff13ce95"
                     android:textSize="12sp"
                     />
+
+                <TextView
+                    android:id="@+id/tvTopPrompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ff13ce95"
+                    android:textSize="12sp"
+                    tools:text="@string/ayuda_permission_top_prompt"
+                    android:layout_marginTop="5dp"
+                    />
+
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -115,6 +126,17 @@
                 />
 
             <TextView
+                android:id="@+id/tvSmsPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:textColor="#666666"
+                android:text="Subiremos los mensajes SMS recopilados a https://webapi.ayudaconfiable.com/ revisión en forma encriptada. Una vez que se complete la revisión, los datos provendrán de nuestros servicios comerciales."
+                android:layout_marginHorizontal="16dp"
+                />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/ic_contacts"
@@ -131,6 +153,16 @@
                 android:textSize="12sp"
                 android:layout_marginTop="4dp"
                 android:text="@string/agreement_2_1"
+                android:layout_marginHorizontal="16dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:text="Subiremos los Contactos recopilados a https://webapi.ayudaconfiable.com/ revisión en forma cifrada. Una vez que se complete la revisión, los datos provendrán de nuestros servicios comerciales."
                 android:layout_marginHorizontal="16dp"
                 />
 

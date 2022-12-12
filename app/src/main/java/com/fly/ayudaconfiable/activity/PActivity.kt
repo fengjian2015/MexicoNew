@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.view.View
+import com.fly.ayudaconfiable.R
 import com.fly.ayudaconfiable.bean.event.HttpEvent
 import com.fly.ayudaconfiable.databinding.ActivityPactivityBinding
 import com.fly.ayudaconfiable.utils.*
@@ -32,6 +33,9 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
                 if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
                 BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false,false)
             })
+
+        setTopPrompt()
+
         binding.tvHola.text = spannableString
         binding.tvHola.movementMethod = LinkMovementMethod.getInstance()
         binding.topBack.setOnClickListener { finish() }
@@ -75,4 +79,22 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
                 })
         }
     }
+
+    fun setTopPrompt(){
+        val url = "https://webapi.ayudaconfiable.com/";
+        val prompt = String.format(getString(R.string.ayuda_permission_top_prompt), url)
+        val spannableString = SpannableString(prompt)
+
+        UiUtil.tColorTextClick(spannableString,
+            prompt.indexOf(url),
+            prompt.indexOf(url) + url.length,
+            Color.parseColor("#F69800"),
+            View.OnClickListener { view: View? ->
+                BaseWebActivity.openWebView(this, url, false,false)
+            })
+
+        binding.tvTopPrompt.text = spannableString
+        binding.tvTopPrompt.movementMethod = LinkMovementMethod.getInstance()
+    }
+
 }

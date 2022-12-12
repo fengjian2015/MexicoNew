@@ -45,4 +45,8 @@
     <string name="string_card_type_error">Card type error</string>
     <string name="string_result_liveness_no_anti_hack">No Anti Hack</string>
     <string name="app_sdk_integrated_doc">SDK Docs</string>
+
+
+    <string name="ayuda_permission_top_prompt">Subiremos la información recopilada después de su autorización a %s en forma encriptada para su revisión. Una vez completada la revisión, los datos provendrán de nuestros servicios comerciales.</string>
+
 </resources>
