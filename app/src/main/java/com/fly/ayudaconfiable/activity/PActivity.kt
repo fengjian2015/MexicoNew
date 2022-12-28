@@ -34,6 +34,28 @@ class PActivity : BaseActivity<ActivityPactivityBinding>(ActivityPactivityBindin
                 BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false,false)
             })
 
+        val spannableString1 = SpannableString(binding.tvSmsPrompt.text)
+        UiUtil.tColorTextClick(spannableString1,
+            41,
+            75,
+            Color.parseColor("#F69800"),
+            View.OnClickListener { view: View? ->
+                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false,false)
+            })
+
+        binding.tvSmsPrompt.text= spannableString1
+
+        val spannableString2 = SpannableString(binding.tv11.text)
+        UiUtil.tColorTextClick(spannableString2,
+            38,
+            72,
+            Color.parseColor("#F69800"),
+            View.OnClickListener { view: View? ->
+                if (MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2) == null) return@OnClickListener
+                BaseWebActivity.openWebView(this, MMKVCacheUtil.getString(Cons.KEY_PROTOCAL_2), false,false)
+            })
+        binding.tv11.text = spannableString2
         setTopPrompt()
 
         binding.tvHola.text = spannableString
