@@ -11,6 +11,7 @@ import com.fly.ayudaconfiable.BuildConfig;
 import com.fly.ayudaconfiable.network.GzipRequestInterceptor;
 import com.fly.ayudaconfiable.network.HttpLoggingInterceptor;
 import com.fly.ayudaconfiable.network.net.http.response.Result;
+import com.fly.ayudaconfiable.utils.Cons;
 import com.fly.ayudaconfiable.utils.LogUtils;
 import com.fly.ayudaconfiable.utils.ToastUtil;
 import com.fly.ayudaconfiable.utils.encrypt.DESEncryption;
@@ -79,8 +80,8 @@ public class NetClient {
     private static String TAG = "NetClient";
     private static Application context;
     protected static Object tag;
-    protected static String serverAddr = "https://api.goodhuiyuan.com/api/";
-    protected static String payServerAddr = "https://pay.goodhuiyuan.com/api/";
+    protected static String serverAddr = Cons.getBaseUrl();
+    protected static String payServerAddr = Cons.getBaseUrl();
     private static NetClient mInstance;
     private static OkHttpClient mOkHttpClient;
     private static OkHttpClient.Builder okHttpClientBuilder;

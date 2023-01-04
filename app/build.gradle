@@ -11,8 +11,8 @@ android {
         applicationId "com.fly.ayudaconfiable"
         minSdk 23
         targetSdk 32
-        versionCode 105
-        versionName "1.0.5"
+        versionCode 106
+        versionName "1.0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
@@ -64,7 +64,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation project(path: ':DFLivenessLibrary')
     implementation project(path: ':commonui')
-    implementation project(path: ':commonui')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -88,7 +87,6 @@ dependencies {
     implementation  'io.github.scwang90:refresh-footer-ball:2.0.5'        //球脉冲加载
     implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'    //经典加载
 
-    implementation 'com.flurry.android:analytics:13.1.0'
     // Retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
