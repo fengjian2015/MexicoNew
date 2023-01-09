@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'org.greenrobot.greendao'
 }
 
 android {
@@ -11,8 +10,8 @@ android {
         applicationId "com.fly.ayudaconfiable"
         minSdk 23
         targetSdk 32
-        versionCode 106
-        versionName "1.0.6"
+        versionCode 110
+        versionName "1.0.10"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
@@ -105,7 +104,6 @@ dependencies {
     api 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-    implementation 'org.greenrobot:greendao:3.3.0' // add library
     api files('libs/mmkv-StaticCpp-release.aar')
     implementation project(path: ':util')
 
