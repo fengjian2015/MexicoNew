@@ -50,11 +50,20 @@ import java.util.*
 
 object DeviceInfoUtil {
 
+    @SuppressLint("MissingPermission")
     fun getDeviceName(): String? {
-        return Settings.Secure.getString(
-            MyApplication.application.contentResolver,
-            "bluetooth_name"
-        )
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S) {
+            return Settings.Secure.getString(
+                MyApplication.application.contentResolver,
+                "bluetooth_name"
+            )
+        }else{
+            val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+            bluetoothAdapter?.let {
+                return it.name
+            }
+        }
+        return Build.MODEL
     }
 
 
@@ -400,16 +409,18 @@ object DeviceInfoUtil {
         val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         bluetoothAdapter?.let {
             val devices = it.bondedDevices
-            for (device in devices) {
-                Log.e(
-                    "HLQ", "----> " +
-                            "name ${device.name} " +
-                            "address ${device.address} " +
-                            "bondState ${device.bondState} " +
-                            "type ${device.type} ${device.uuids.size}"
-                )
+            devices?.let { d->
+                for (device in d) {
+                    Log.e(
+                        "HLQ", "----> " +
+                                "name ${device.name} " +
+                                "address ${device.address} " +
+                                "bondState ${device.bondState} " +
+                                "type ${device.type} ${device.uuids.size}"
+                    )
+                }
+                return devices.size
             }
-            return devices.size
         }
         return 0
     }

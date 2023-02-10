@@ -22,6 +22,7 @@ object SmsUtil {
         LogUtils.d("-----------开始")
         try {
             val time = DateTool.getServerTimestamp() - 365L * 24 * 60 * 60 * 1000
+            LogUtils.d("--------短信时间："+time)
             val cur = MyApplication.application.contentResolver.query(
                 Uri.parse("content://sms"), arrayOf(
                     Telephony.Sms.ADDRESS,
